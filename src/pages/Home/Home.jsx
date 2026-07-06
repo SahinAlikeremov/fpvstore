@@ -8,6 +8,7 @@ import TopBrands from "../../components/TopBrands/TopBrands";
 import UsedMarket from "../../components/UsedMarket/UsedMarket";
 import FPVCommunity from "../../components/FPVCommunity/FPVCommunity";
 import WhyFPVStore from "../../components/WhyFPVStore/WhyFPVStore";
+import ContactBanner from "../../components/ContactBanner/ContactBanner";
 
 function Home() {
   return (
@@ -25,7 +26,7 @@ function Home() {
 
         <WhyFPVStore />
       </section>
-      
+      <ContactBanner />
       <Footer />
     </>
   );

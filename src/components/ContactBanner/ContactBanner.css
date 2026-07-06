@@ -1,0 +1,177 @@
+.contact-banner {
+    position: relative;
+
+    width: min(1600px, calc(100% - 36px));
+    margin: 70px auto;
+
+    height: 170px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(rgba(255,40,40,.18),
+        rgba(255,40,40,.18)),
+        linear-gradient(
+            90deg,
+            rgba(8,8,8,.88) 0%,
+            rgba(8,8,8,.65) 35%,
+            rgba(8,8,8,.35) 60%,
+            rgba(8,8,8,.12) 100%
+        ),
+        url("../../assets/images/baku.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 55px;
+}
+
+.contact-left span{
+    color:#d7d7d7;
+    font-size:17px;
+    letter-spacing:1px;
+}
+
+.contact-left h2{
+    margin-top:8px;
+    color:#fff;
+    font-size:38px;
+    font-weight:800;
+    line-height:1.15;
+}
+
+.contact-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    height:58px;
+    padding:0 34px;
+
+    background:#ff3b30;
+    color:#fff;
+    text-decoration:none;
+
+    border-radius:999px;
+
+    font-size:16px;
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.3s;
+}
+
+.contact-btn svg{
+    font-size:24px;
+}
+
+.contact-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(255,59,48,.35);
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width:992px){
+
+    .contact-banner{
+        width:min(1600px, calc(100% - 36px));
+        margin:60px auto;
+        height:280px;
+    }
+
+    .contact-overlay{
+        inset:0;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        text-align:center;
+
+        padding:30px;
+        gap:24px;
+    }
+
+    .contact-left{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .contact-left h2{
+        font-size:32px;
+    }
+
+    .contact-btn{
+        width:100%;
+        max-width:340px;
+    }
+
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width:768px){
+
+    .contact-banner{
+        width:min(1600px, calc(100% - 36px));
+        margin:40px auto;
+        height:360px;
+    }
+
+    .contact-overlay{
+        inset:0;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        text-align:center;
+
+        padding:24px;
+        gap:22px;
+    }
+
+    .contact-left{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .contact-left span{
+        font-size:14px;
+    }
+
+    .contact-left h2{
+        font-size:28px;
+        margin:0;
+        line-height:1.2;
+    }
+
+    .contact-btn{
+        width:100%;
+        max-width:320px;
+        height:54px;
+        padding:0 20px;
+        font-size:15px;
+    }
+
+}
