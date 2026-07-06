@@ -85,8 +85,6 @@
     box-shadow:0 12px 28px rgba(255,59,48,.35);
 }
 
-/* ================= TABLET ================= */
-
 @media (max-width:992px){
 
     .contact-banner{
@@ -125,8 +123,6 @@
     }
 
 }
-
-/* ================= PHONE ================= */
 
 @media (max-width:768px){
 
