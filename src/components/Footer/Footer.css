@@ -8,7 +8,6 @@
 .footer-container{
     max-width:1600px;
     margin:auto;
-
     padding:65px 60px;
 
     display:grid;
@@ -46,15 +45,16 @@
     font-weight:700;
 }
 
-.footer-column a{
+/* SADECE MENÜ LİNKLERİ */
+.footer-column > a{
     color:#a8a8a8;
     text-decoration:none;
     margin-bottom:14px;
-    transition:.3s;
     width:max-content;
+    transition:.3s;
 }
 
-.footer-column a:hover{
+.footer-column > a:hover{
     color:#ff3b30;
     transform:translateX(5px);
 }
@@ -64,6 +64,8 @@
     margin-bottom:14px;
     line-height:1.6;
 }
+
+/* SOCIALS */
 
 .footer-socials{
     display:flex;
@@ -78,32 +80,41 @@
     align-items:center;
     justify-content:center;
 
-    border-radius:50%;
-
     background:#111;
     border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
 
-    color:#fff;
+    color:#fff !important;
     font-size:18px;
 
+    text-decoration:none;
+    margin:0;
+
     transition:.3s;
+
+    transform:none;
 }
 
 .footer-socials a:hover{
     background:#ff3b30;
     border-color:#ff3b30;
-    transform:translateY(-4px);
+
+    color:#fff !important;
+
+    transform:translateY(-4px) scale(1.08);
 }
+
+/* BOTTOM */
 
 .footer-bottom{
     border-top:1px solid rgba(255,255,255,.08);
 
+    max-width:1600px;
+    margin:auto;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    max-width:1600px;
-    margin:auto;
 
     padding:24px 60px;
 
@@ -114,6 +125,8 @@
 .footer-bottom span:last-child{
     color:#bdbdbd;
 }
+
+/* TABLET */
 
 @media(max-width:1200px){
 
@@ -128,13 +141,13 @@
 
 }
 
+/* MOBILE */
+
 @media(max-width:768px){
 
     .footer-container{
         padding:55px 24px;
-
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -142,7 +155,7 @@
         align-items:center;
     }
 
-    .footer-column a{
+    .footer-column > a{
         width:auto;
     }
 
@@ -152,14 +165,14 @@
 
     .footer-bottom{
         padding:20px 24px;
-
         flex-direction:column;
         gap:10px;
-
         text-align:center;
     }
 
 }
+
+/* SMALL MOBILE */
 
 @media(max-width:480px){
 
