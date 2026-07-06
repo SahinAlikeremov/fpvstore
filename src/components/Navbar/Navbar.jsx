@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import {
   FiSearch,
   FiHeart,
@@ -28,18 +29,35 @@ function Navbar() {
 
       <div className="navbar-container">
 
-        <div className="logo">
+        <NavLink to="/" className="logo">
           <span className="logo-white">FPVStore</span>
           <span className="logo-red">.az</span>
-        </div>
+        </NavLink>
 
         <ul className="nav-links">
-          <li><a className="active" href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Brands</a></li>
-          <li><a href="#">Used Market</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Support</a></li>
+          <li>
+            <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/" end>Home</NavLink>
+          </li>
+
+          <li>
+            <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/products">Products</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/brands">Brands</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/used-market">Used Market</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/community">Community</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/support">Support</NavLink>
+          </li>
         </ul>
 
         <div className="right-side">
