@@ -18,7 +18,7 @@ function ContactBanner() {
 
         <a
           className="contact-btn"
-          href="https://wa.me/994501234567"
+          href="https://wa.me/994707991070"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -53,12 +53,12 @@ function Footer() {
 
           <h3>QUICK LINKS</h3>
 
-          <a href="#">Home</a>
-          <a href="#">Products</a>
-          <a href="#">Brands</a>
-          <a href="#">Used Market</a>
-          <a href="#">Community</a>
-          <a href="#">Support</a>
+          <a href="/">Home</a>
+          <a href="/products">Products</a>
+          <a href="/brands">Brands</a>
+          <a href="/used-market">Used Market</a>
+          <a href="/community">Community</a>
+          <a href="/support">Support</a>
 
         </div>
 
