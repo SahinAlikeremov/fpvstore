@@ -6,7 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import ProductsHero from "../../components/ProductsHero/ProductsHero";
 import ProductFilters from "../../components/ProductFilters/ProductFilters";
 // import ProductCategories from "../../components/ProductCategories/ProductCategories";
-// import ProductGrid from "../../components/ProductGrid/ProductGrid";
+import ProductGrid from "../../components/ProductGrid/ProductGrid";
 // import ProductPagination from "../../components/ProductPagination/ProductPagination";
 
 function Products() {
@@ -16,7 +16,9 @@ function Products() {
 
       <ProductsHero />
       <ProductFilters />
+          <ProductGrid />
       <Footer />
+  
     </>
   );
 }
