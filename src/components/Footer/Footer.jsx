@@ -97,8 +97,6 @@ function Footer() {
 
           <p>📍 Baku, Azerbaijan</p>
 
-          <p>Meeting Only</p>
-
         </div>
 
       </div>
