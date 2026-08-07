@@ -2,7 +2,7 @@
   "name": "fpvstore",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.io/SahinAlikeremov/fpvstore",
+  "homepage": "https://sahinalikeremov.github.io/fpvstore/",
   "type": "module",
   "scripts": {
     "dev": "vite",
