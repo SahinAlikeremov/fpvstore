@@ -1,0 +1,226 @@
+.used-product-card{
+
+    position:relative;
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    cursor:pointer;
+}
+
+.used-product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff3131;
+
+    box-shadow:0 18px 40px rgba(255,49,49,.18);
+}
+
+.used-badge{
+
+    position:absolute;
+
+    top:18px;
+    left:18px;
+
+    background:#ff3131;
+
+    color:#fff;
+
+    padding:7px 15px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    z-index:5;
+}
+
+.used-wishlist{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#1b1b1b;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:5;
+}
+
+.used-wishlist:hover{
+
+    background:#ff3131;
+}
+
+.used-image{
+
+    height:250px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+}
+
+.used-image img{
+
+    width:100%;
+
+    max-width:210px;
+
+    transition:.35s;
+}
+
+.used-product-card:hover img{
+
+    transform:scale(1.08);
+}
+
+.used-content{
+
+    padding:25px;
+}
+
+.used-content h3{
+
+    color:#fff;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+}
+
+.battery-grade{
+
+    color:#888;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+}
+
+.used-rating{
+
+    display:flex;
+
+    gap:4px;
+
+    color:#ff3131;
+
+    margin:14px 0;
+}
+
+.battery-condition{
+
+    color:#fff;
+
+    font-weight:700;
+
+    display:block;
+
+    margin-bottom:18px;
+}
+
+.used-location{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#bdbdbd;
+
+    margin-bottom:22px;
+}
+
+.used-price{
+
+    display:flex;
+
+    align-items:end;
+
+    gap:14px;
+
+    margin-bottom:24px;
+}
+
+.old-price{
+
+    color:#777;
+
+    text-decoration:line-through;
+
+    font-size:18px;
+}
+
+.used-price h2{
+
+    color:#fff;
+
+    font-size:42px;
+
+    margin:0;
+}
+
+.used-btn{
+
+    width:100%;
+    height:56px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#1b1b1b;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:10px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.used-btn:hover{
+
+    background:#ff3131;
+}

@@ -1,0 +1,188 @@
+.community-cta{
+
+    width:90%;
+    max-width:1450px;
+
+    margin:120px auto;
+}
+
+.community-cta-box{
+
+    background:linear-gradient(135deg,#121212,#1a1a1a);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:90px 60px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.community-cta-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    background:rgba(255,49,49,.12);
+
+    filter:blur(120px);
+
+    top:-160px;
+    right:-120px;
+}
+
+.community-cta-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:rgba(255,49,49,.08);
+
+    filter:blur(100px);
+
+    bottom:-180px;
+    left:-120px;
+}
+
+.community-cta-box>*{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.community-cta-box span{
+
+    color:#ff3131;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.community-cta-box h2{
+
+    color:#fff;
+
+    font-size:56px;
+
+    font-weight:900;
+
+    line-height:1.15;
+
+    margin:22px 0;
+}
+
+.community-cta-box p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    color:#bdbdbd;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+.community-cta-box button{
+
+    margin-top:45px;
+
+    width:250px;
+    height:60px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ff3131;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.community-cta-box button:hover{
+
+    background:#ff4b4b;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 40px rgba(255,49,49,.35);
+}
+
+@media(max-width:992px){
+
+    .community-cta-box{
+
+        padding:70px 35px;
+    }
+
+    .community-cta-box h2{
+
+        font-size:42px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .community-cta-box{
+
+        padding:55px 22px;
+    }
+
+    .community-cta-box h2{
+
+        font-size:32px;
+    }
+
+    .community-cta-box p{
+
+        font-size:16px;
+    }
+
+    .community-cta-box button{
+
+        width:100%;
+    }
+
+}

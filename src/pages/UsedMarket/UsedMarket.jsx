@@ -5,8 +5,8 @@ import Footer from "../../components/Footer/Footer";
 
 import UsedHero from "../../components/UsedHero/UsedHero";
 import UsedFilters from "../../components/UsedFilters/UsedFilters";
-// import UsedProductGrid from "../../components/UsedProductGrid/UsedProductGrid";
-// import SellYourGear from "../../components/SellYourGear/SellYourGear";
+import UsedProductGrid from "../../components/UsedProductGrid/UsedProductGrid";
+import SellYourGear from "../../components/SellYourGear/SellYourGear";
 
 function UsedMarket() {
   return (
@@ -17,9 +17,9 @@ function UsedMarket() {
 
       <UsedFilters />
 
-      {/* <UsedProductGrid /> */}
+      <UsedProductGrid />
 
-      {/* <SellYourGear /> */}
+      <SellYourGear />
 
       <Footer />
     </>

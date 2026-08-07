@@ -1,0 +1,106 @@
+.community-stats{
+
+    width:90%;
+    max-width:1450px;
+
+    margin:110px auto;
+}
+
+.community-stats-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+}
+
+.stat-card{
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:45px 25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff3131;
+
+    box-shadow:0 18px 40px rgba(255,49,49,.18);
+}
+
+.stat-card svg{
+
+    font-size:48px;
+
+    color:#ff3131;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+}
+
+.stat-card:hover svg{
+
+    transform:scale(1.12) rotate(5deg);
+}
+
+.stat-card h2{
+
+    color:#fff;
+
+    font-size:44px;
+
+    margin-bottom:12px;
+
+    font-weight:800;
+}
+
+.stat-card p{
+
+    color:#bdbdbd;
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+@media(max-width:1100px){
+
+    .community-stats-container{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .community-stats-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .stat-card{
+
+        padding:35px 20px;
+    }
+
+    .stat-card h2{
+
+        font-size:36px;
+    }
+
+}
