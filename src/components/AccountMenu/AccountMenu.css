@@ -1,0 +1,97 @@
+.account-menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    width: 210px;
+    padding: 10px;
+
+    background: #111111;
+
+    border: 1px solid #292929;
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px) scale(0.98);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0.3s;
+}
+
+.account-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0) scale(1);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0s;
+}
+
+.account-menu-title {
+    padding: 10px 12px;
+
+    color: #ff3131;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    border-bottom: 1px solid #242424;
+
+    margin-bottom: 6px;
+}
+
+.account-menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    padding: 12px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.account-menu-item svg {
+    color: #777777;
+
+    font-size: 17px;
+
+    transition: color 0.2s ease;
+}
+
+.account-menu-item:hover {
+    color: #ff3131;
+
+    background: rgba(255, 49, 49, 0.08);
+}
+
+.account-menu-item:hover svg {
+    color: #ff3131;
+}

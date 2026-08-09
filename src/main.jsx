@@ -3,14 +3,20 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
-import { CartProvider } from "./contexts/CartContext.jsx";
 
-const basename = import.meta.env.DEV ? "/" : "/fpvstore";
+import { CartProvider } from "./contexts/CartContext.jsx";
+import { WishlistProvider } from "./contexts/WishlistContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <BrowserRouter basename={basename}>
+    <BrowserRouter>
+
         <CartProvider>
-            <App />
+
+            <WishlistProvider>
+                <App />
+            </WishlistProvider>
+
         </CartProvider>
+
     </BrowserRouter>
 );

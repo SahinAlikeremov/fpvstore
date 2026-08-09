@@ -44,7 +44,7 @@ function Testimonials() {
                     <div className="testimonial-user">
 
                         <img
-                            src="https://i.pravatar.cc/100?img=12"
+                            src=""
                             alt=""
                         />
 
@@ -82,7 +82,7 @@ function Testimonials() {
                     <div className="testimonial-user">
 
                         <img
-                            src="https://i.pravatar.cc/100?img=32"
+                            src=""
                             alt=""
                         />
 
@@ -120,7 +120,7 @@ function Testimonials() {
                     <div className="testimonial-user">
 
                         <img
-                            src="https://i.pravatar.cc/100?img=48"
+                            src=""
                             alt=""
                         />
 

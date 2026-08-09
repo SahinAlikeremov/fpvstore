@@ -31,7 +31,7 @@
 
     transition: .3s ease;
 
-    overflow: hidden;
+   overflow: visible;
 
 }
 
@@ -514,4 +514,19 @@
 
     }
 
+}
+
+.account-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.account-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 210px;
+    height: 14px;
 }
