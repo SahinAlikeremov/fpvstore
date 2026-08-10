@@ -1,112 +1,42 @@
 import "./ProductGrid.css";
+
 import ProductCard from "../ProductCard/ProductCard";
-import mpu6000 from "../../assets/images/mpu6000.png";
-import drone from "../../assets/images/heroDrone.png";
-import f60 from "../../assets/images/f60.png";
-import ovonic from "../../assets/images/ovonic1550.png";
-import ovonic2 from "../../assets/images/ovonic1300.png";
-import gemfan from "../../assets/images/gemfanprops.png";
-import tattu from "../../assets/images/tattu1480.png";
-import hdzero from "../../assets/images/hdzero.png";
-import boxer from "../../assets/images/boxer.png";
 
-function ProductGrid() {
-  return (
-    <section className="product-grid">
+function ProductGrid({ products }) {
 
-      <div className="grid">
+    return (
 
-            <ProductCard
-                id="mpu6000"
-                image={mpu6000}
-                badge="Pre-Order"
-                brand="T-Hobby"
-                title="T-HOBBY MINI F7 (MPU6000)"
-                price={289}
-                oldPrice={349}
-                reviews={27}
-            />
+        <div className="grid">
 
-            <ProductCard
-                id="f60"
-                image={f60}
-                badge="-10%"
-                brand="T-Hobby"
-                title="F60 Pro V 1950KV"
-                price={80}
-                oldPrice={120}
-                reviews={52}
-            />
+            {products.map((product) => (
 
-            <ProductCard
-                id="ovonic-1550-used"
-                image={ovonic}
-                badge="Used"
-                brand="Ovonic"
-                title="6S 1550mAh 100C"
-                price={69}
-                oldPrice={89}
-                reviews={85}
-            />
+                <ProductCard
+                    key={product.id}
 
-            <ProductCard
-                id="ovonic-1550-used-like-new"
-                image={ovonic}
-                badge="Used-Like New"
-                brand="Ovonic"
-                title="6S 1550mAh 100C"
-                price={69}
-                oldPrice={79}
-                reviews={14}
-            />
+                    id={product.id}
 
-            <ProductCard
-                id="gemfan-51466"
-                image={gemfan}
-                badge="-15%"
-                brand="Gemfan"
-                title="51466 Hurricane(1 pack)"
-                price={12}
-                oldPrice={15}
-                reviews={74}
-            />
+                    image={product.image}
 
-            <ProductCard
-                id="tattu-1480"
-                image={tattu}
-                badge="Pre-Order"
-                brand="Tattu"
-                title="6S 1480mAh 160C"
-                price={149}
-                oldPrice={174}
-                reviews={33}
-            />
+                    badge={product.badge}
 
-            <ProductCard
-                id="hdzero-goggles-2"
-                image={hdzero}
-                badge="NEW"
-                brand="HDZero"
-                title="Goggles 2"
-                price={2000}
-                reviews={17}
-            />
+                    brand={product.brand}
 
-            <ProductCard
-                id="radiomaster-boxer"
-                image={boxer}
-                badge="HOT"
-                brand="Radiomaster"
-                title="Boxer ELRS"
-                price={319}
-                oldPrice={389}
-                reviews={48}
-            />
+                    title={product.title}
 
-      </div>
+                    price={product.price}
 
-    </section>
-  );
+                    oldPrice={product.oldPrice}
+
+                    rating={product.rating}
+
+                    reviews={product.reviews}
+                />
+
+            ))}
+
+        </div>
+
+    );
 }
 
-export default ProductGrid; 
+export default ProductGrid;

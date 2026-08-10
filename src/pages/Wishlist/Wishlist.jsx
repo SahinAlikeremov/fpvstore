@@ -3,9 +3,14 @@ import "./Wishlist.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
-import { FiHeart, FiShoppingCart, FiTrash2 } from "react-icons/fi";
+import {
+    FiHeart,
+    FiShoppingCart,
+    FiTrash2
+} from "react-icons/fi";
 
 import { useWishlist } from "../../contexts/WishlistContext";
+import { useCart } from "../../contexts/CartContext";
 
 function Wishlist() {
 
@@ -13,6 +18,10 @@ function Wishlist() {
         wishlist,
         removeFromWishlist
     } = useWishlist();
+
+    const {
+        addToCart
+    } = useCart();
 
     return (
 
@@ -89,7 +98,9 @@ function Wishlist() {
                                         className="wishlist-remove"
                                         type="button"
                                         onClick={() =>
-                                            removeFromWishlist(product.id)
+                                            removeFromWishlist(
+                                                product.id
+                                            )
                                         }
                                         aria-label="Remove from wishlist"
                                     >
@@ -101,7 +112,10 @@ function Wishlist() {
 
                                         <img
                                             src={product.image}
-                                            alt={product.title}
+                                            alt={
+                                                product.name ||
+                                                product.title
+                                            }
                                         />
 
                                     </div>
@@ -114,7 +128,8 @@ function Wishlist() {
                                         </span>
 
                                         <h3>
-                                            {product.title}
+                                            {product.name ||
+                                                product.title}
                                         </h3>
 
 
@@ -138,6 +153,12 @@ function Wishlist() {
                                             <button
                                                 type="button"
                                                 className="wishlist-cart-btn"
+                                                onClick={() => {
+                                                    addToCart(product);
+                                                    removeFromWishlist(
+                                                        product.id
+                                                    );
+                                                }}
                                             >
                                                 <FiShoppingCart />
                                                 Add To Cart
@@ -151,6 +172,7 @@ function Wishlist() {
                                                         product.id
                                                     )
                                                 }
+                                                aria-label="Remove from wishlist"
                                             >
                                                 <FiHeart />
                                             </button>

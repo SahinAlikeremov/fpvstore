@@ -4,56 +4,58 @@ import drone from "../../assets/images/heroDrone.png";
 
 import { FiSearch } from "react-icons/fi";
 
-function ProductsHero() {
-  return (
-    <section className="products-hero">
+function ProductsHero({ search, setSearch }) {
 
-      <div className="products-hero-container">
+    return (
 
-        <div className="products-left">
+        <div className="products-hero-container">
 
-          <span className="products-tag">
-            FPVSTORE.AZ
-          </span>
+            <div className="products-left">
 
-          <h1>
-            FIND YOUR NEXT
-            <br />
-            FPV BUILD
-          </h1>
+                <span className="products-tag">
+                    FPVSTORE.AZ
+                </span>
 
-          <p>
-            Explore premium FPV drones, motors, frames,
-            batteries, cameras and accessories from the
-            world's leading brands.
-          </p>
+                <h1>
+                    FIND YOUR NEXT
+                    <br />
+                    FPV BUILD
+                </h1>
 
-          <div className="products-search">
+                <p>
+                    Explore premium FPV drones, motors, frames,
+                    batteries, cameras and accessories from the
+                    world's leading brands.
+                </p>
 
-            <FiSearch />
+                <div className="products-search">
 
-            <input
-              type="text"
-              placeholder="Search products..."
-            />
+                    <FiSearch />
 
-          </div>
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={search}
+                        onChange={(e) =>
+                            setSearch(e.target.value)
+                        }
+                    />
+
+                </div>
+
+            </div>
+
+            <div className="products-right">
+
+                <img
+                    src={drone}
+                    alt="FPV Drone"
+                />
+
+            </div>
 
         </div>
-
-        <div className="products-right">
-
-          <img
-            src={drone}
-            alt="FPV Drone"
-          />
-
-        </div>
-
-      </div>
-
-    </section>
-  );
+    );
 }
 
 export default ProductsHero;
