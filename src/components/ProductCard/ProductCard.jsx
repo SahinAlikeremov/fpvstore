@@ -9,6 +9,15 @@ import {
 import { useWishlist } from "../../contexts/WishlistContext";
 import { useCart } from "../../contexts/CartContext";
 
+const images = import.meta.glob(
+    "../../assets/images/*",
+    {
+        eager: true,
+        query: "?url",
+        import: "default"
+    }
+);
+
 function ProductCard({
     id,
     image,
@@ -30,18 +39,25 @@ function ProductCard({
         addToCart
     } = useCart();
 
+    const imageName = image
+        ? image.split("/").pop()
+        : "";
+
+    const imageKey = Object.keys(images).find(
+        (key) => key.endsWith(`/${imageName}`)
+    );
+
+    const imagePath = imageKey
+        ? images[imageKey]
+        : "";
+
     const product = {
         id,
-        image,
+        image: imagePath,
         badge,
         brand,
-
-        /* Cart için */
         name: title,
-
-        /* Wishlist için */
         title,
-
         price,
         oldPrice,
         rating,
@@ -51,7 +67,6 @@ function ProductCard({
     const liked = isInWishlist(id);
 
     return (
-
         <div className="product-card">
 
             {badge && (
@@ -76,7 +91,7 @@ function ProductCard({
             <div className="product-image">
 
                 <img
-                    src={image}
+                    src={imagePath}
                     alt={title}
                 />
 
@@ -127,11 +142,8 @@ function ProductCard({
                         addToCart(product)
                     }
                 >
-
                     <FiShoppingCart />
-
                     Add To Cart
-
                 </button>
 
             </div>

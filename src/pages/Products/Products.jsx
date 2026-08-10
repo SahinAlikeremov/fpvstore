@@ -1,6 +1,6 @@
 import "./Products.css";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -9,11 +9,12 @@ import ProductsHero from "../../components/ProductsHero/ProductsHero";
 import ProductFilters from "../../components/ProductFilters/ProductFilters";
 import ProductGrid from "../../components/ProductGrid/ProductGrid";
 
-import { products } from "../../data/products";
-
 function Products() {
 
+    const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
     const [filters, setFilters] = useState({
         category: "all",
@@ -21,6 +22,33 @@ function Products() {
         price: "all",
         sort: "newest"
     });
+
+    // GET PRODUCTS FROM BACKEND
+    useEffect(() => {
+
+        fetch("http://localhost:8080/api/products")
+            .then((response) => {
+
+                if (!response.ok) {
+                    throw new Error("Products could not be loaded");
+                }
+
+                return response.json();
+            })
+            .then((data) => {
+
+                setProducts(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+
+                console.error(error);
+
+                setError("Products could not be loaded.");
+                setLoading(false);
+            });
+
+    }, []);
 
     const filteredProducts = useMemo(() => {
 
@@ -116,11 +144,10 @@ function Products() {
 
         return result;
 
-    }, [search, filters]);
+    }, [products, search, filters]);
 
     return (
         <>
-
             <Navbar />
 
             <main className="products-page">
@@ -136,14 +163,23 @@ function Products() {
                     productCount={filteredProducts.length}
                 />
 
-                <ProductGrid
-                    products={filteredProducts}
-                />
+                {loading && (
+                    <p>Loading products...</p>
+                )}
+
+                {error && (
+                    <p>{error}</p>
+                )}
+
+                {!loading && !error && (
+                    <ProductGrid
+                        products={filteredProducts}
+                    />
+                )}
 
             </main>
 
             <Footer />
-
         </>
     );
 }
