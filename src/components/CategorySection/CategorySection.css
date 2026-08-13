@@ -300,3 +300,34 @@
         height:210px;
     }
 }
+
+.category-card {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+
+    font: inherit;
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.category-card:hover {
+    color: inherit;
+}
+
+.category-card:focus {
+    outline: none;
+}
+
+.category-card:focus-visible {
+    outline: 2px solid #ff3131;
+    outline-offset: 3px;
+}

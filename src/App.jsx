@@ -10,8 +10,9 @@ import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Wishlist from "./pages/Wishlist/Wishlist";
-
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Account from "./pages/Account/Account";
 
 
 function App() {
@@ -71,6 +72,16 @@ function App() {
                 <Route
                     path="/wishlist"
                     element={<Wishlist />}
+                />
+
+                <Route
+                    path="/products/:id"
+                    element={<ProductDetail />}
+                />
+
+                <Route
+                    path="/account"
+                    element={<Account />}
                 />
 
             </Routes>

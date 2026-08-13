@@ -1,7 +1,7 @@
 import "./Navbar.css";
 
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
     FiSearch,
@@ -16,6 +16,8 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 
 function Navbar() {
 
+    const navigate = useNavigate();
+
     const [isSmallScreen, setIsSmallScreen] = useState(
         window.innerWidth <= 1400
     );
@@ -26,6 +28,8 @@ function Navbar() {
 
     const [user, setUser] = useState(null);
     const [authLoading, setAuthLoading] = useState(true);
+
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
 
@@ -95,6 +99,20 @@ function Navbar() {
 
     const showAccountMenu =
         isAccountOpen || isAccountHovered;
+
+    const handleSearch = () => {
+
+        const value = search.trim();
+
+        if (!value) {
+            navigate("/products");
+            return;
+        }
+
+        navigate(
+            `/products?search=${encodeURIComponent(value)}`
+        );
+    };
 
     return (
 
@@ -200,6 +218,17 @@ function Navbar() {
                                         ? "Search..."
                                         : "Search products..."
                                 }
+                                value={search}
+                                onChange={(e) =>
+                                    setSearch(e.target.value)
+                                }
+                                onKeyDown={(e) => {
+
+                                    if (e.key === "Enter") {
+                                        handleSearch();
+                                    }
+
+                                }}
                             />
 
                         </div>

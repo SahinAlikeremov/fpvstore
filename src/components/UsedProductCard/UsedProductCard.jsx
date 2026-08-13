@@ -11,12 +11,21 @@ import {
 
 import { useEffect, useState } from "react";
 
-import batteryImage from "../../assets/images/ovonic1300.png";
-
+import ovonic1300 from "../../assets/images/ovonic1300.png";
+import ovonic1550 from "../../assets/images/ovonic1550.png";
+import ovonic13002 from "../../assets/images/ovonic13002.png";
+import ovonic1600 from "../../assets/images/ovonic1600.png";
 import { useWishlist } from "../../contexts/WishlistContext";
 import { useCart } from "../../contexts/CartContext";
 
-function UsedProductCard() {
+const productImages = {
+    "ovonic1300.png": ovonic1300,
+    "ovonic1550.png": ovonic1550,
+    "ovonic13002.png": ovonic13002,
+    "ovonic1600.png": ovonic1600,
+};
+
+function UsedProductCard({ product }) {
 
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
@@ -29,16 +38,16 @@ function UsedProductCard() {
         addToCart
     } = useCart();
 
-    const product = {
-        id: "used-ovonic-1300",
-        image: batteryImage,
-        badge: "Like New",
-        brand: "Ovonic",
-        title: "Ovonic 1300mAh",
-        name: "Ovonic 1300mAh",
-        price: 59,
-        oldPrice: 69,
-        condition: "Brand New",
+    const imageName = product.image
+        ? product.image.split("/").pop()
+        : null;
+
+    const image = productImages[imageName];
+
+    const displayProduct = {
+        ...product,
+        image: image,
+        name: product.title,
         location: "Baku"
     };
 
@@ -63,13 +72,17 @@ function UsedProductCard() {
             <div className="used-product-card">
 
                 <div className="used-badge">
-                    {product.badge}
+                    {displayProduct.badge}
                 </div>
 
                 <button
-                    className={`used-wishlist ${liked ? "active" : ""}`}
+                    className={`used-wishlist ${
+                        liked ? "active" : ""
+                    }`}
                     type="button"
-                    onClick={() => toggleWishlist(product)}
+                    onClick={() =>
+                        toggleWishlist(displayProduct)
+                    }
                     aria-label="Wishlist"
                 >
                     <FiHeart />
@@ -77,17 +90,19 @@ function UsedProductCard() {
 
                 <div className="used-image">
 
-                    <img
-                        src={product.image}
-                        alt={product.title}
-                    />
+                    {image && (
+                        <img
+                            src={image}
+                            alt={displayProduct.title}
+                        />
+                    )}
 
                 </div>
 
                 <div className="used-content">
 
                     <h3>
-                        {product.title}
+                        {displayProduct.title}
                     </h3>
 
                     <span className="battery-grade">
@@ -96,34 +111,49 @@ function UsedProductCard() {
 
                     <div className="used-rating">
 
-                        <FiStar />
-                        <FiStar />
-                        <FiStar />
-                        <FiStar />
-                        <FiStar />
+                        {[...Array(5)].map((_, index) => (
+
+                            <FiStar
+                                key={index}
+                                className={
+                                    index <
+                                    Math.round(
+                                        displayProduct.rating
+                                    )
+                                        ? "active"
+                                        : ""
+                                }
+                            />
+
+                        ))}
 
                     </div>
 
                     <span className="battery-condition">
-                        {product.condition}
+                        {displayProduct.condition}
                     </span>
 
                     <div className="used-location">
 
                         <FiMapPin />
 
-                        {product.location}
+                        {displayProduct.location}
 
                     </div>
 
                     <div className="used-price">
 
-                        <span className="old-price">
-                            ₼{product.oldPrice}
-                        </span>
+                        {displayProduct.oldPrice !== null &&
+                            displayProduct.oldPrice !== undefined && (
+
+                                <span className="old-price">
+                                    ₼{displayProduct.oldPrice}
+                                </span>
+
+                            )}
 
                         <h2>
-                            ₼{product.price}
+                            ₼{displayProduct.price}
                         </h2>
 
                     </div>
@@ -133,7 +163,9 @@ function UsedProductCard() {
                         <button
                             className="used-details-btn"
                             type="button"
-                            onClick={() => setIsDetailsOpen(true)}
+                            onClick={() =>
+                                setIsDetailsOpen(true)
+                            }
                         >
                             <FiEye />
                             View Details
@@ -146,20 +178,27 @@ function UsedProductCard() {
             </div>
 
             {isDetailsOpen && (
+
                 <div
                     className="details-overlay"
-                    onClick={() => setIsDetailsOpen(false)}
+                    onClick={() =>
+                        setIsDetailsOpen(false)
+                    }
                 >
 
                     <div
                         className="details-modal"
-                        onClick={(event) => event.stopPropagation()}
+                        onClick={(event) =>
+                            event.stopPropagation()
+                        }
                     >
 
                         <button
                             className="details-close"
                             type="button"
-                            onClick={() => setIsDetailsOpen(false)}
+                            onClick={() =>
+                                setIsDetailsOpen(false)
+                            }
                             aria-label="Close"
                         >
                             <FiX />
@@ -167,33 +206,45 @@ function UsedProductCard() {
 
                         <div className="details-image">
 
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                            />
+                            {image && (
+                                <img
+                                    src={image}
+                                    alt={displayProduct.title}
+                                />
+                            )}
 
                         </div>
 
                         <div className="details-content">
 
                             <span className="details-brand">
-                                {product.brand}
+                                {displayProduct.brand}
                             </span>
 
                             <h2>
-                                {product.title}
+                                {displayProduct.title}
                             </h2>
 
                             <div className="details-rating">
 
-                                <FiStar />
-                                <FiStar />
-                                <FiStar />
-                                <FiStar />
-                                <FiStar />
+                                {[...Array(5)].map((_, index) => (
+
+                                    <FiStar
+                                        key={index}
+                                        className={
+                                            index <
+                                            Math.round(
+                                                displayProduct.rating
+                                            )
+                                                ? "active"
+                                                : ""
+                                        }
+                                    />
+
+                                ))}
 
                                 <span>
-                                    Excellent condition
+                                    {displayProduct.condition}
                                 </span>
 
                             </div>
@@ -207,7 +258,7 @@ function UsedProductCard() {
                                     </span>
 
                                     <strong>
-                                        {product.condition}
+                                        {displayProduct.condition}
                                     </strong>
 
                                 </div>
@@ -219,7 +270,7 @@ function UsedProductCard() {
                                     </span>
 
                                     <strong>
-                                        {product.location}
+                                        {displayProduct.location}
                                     </strong>
 
                                 </div>
@@ -227,8 +278,7 @@ function UsedProductCard() {
                             </div>
 
                             <p className="details-description">
-                                This battery is in excellent condition and ready for FPV use.
-                                It has been carefully checked and is suitable for FPV pilots.
+                                This product is available in the FPVStore Used Market and has been checked before being listed.
                             </p>
 
                             <div className="details-specs">
@@ -236,11 +286,11 @@ function UsedProductCard() {
                                 <div>
 
                                     <span>
-                                        CAPACITY
+                                        PRODUCT
                                     </span>
 
                                     <strong>
-                                        1300mAh
+                                        {displayProduct.brand}
                                     </strong>
 
                                 </div>
@@ -248,11 +298,11 @@ function UsedProductCard() {
                                 <div>
 
                                     <span>
-                                        VOLTAGE
+                                        CATEGORY
                                     </span>
 
                                     <strong>
-                                        6S
+                                        {displayProduct.category}
                                     </strong>
 
                                 </div>
@@ -260,11 +310,11 @@ function UsedProductCard() {
                                 <div>
 
                                     <span>
-                                        DISCHARGE
+                                        STOCK
                                     </span>
 
                                     <strong>
-                                        100C
+                                        {displayProduct.stock}
                                     </strong>
 
                                 </div>
@@ -275,12 +325,17 @@ function UsedProductCard() {
 
                                 <div className="details-price">
 
-                                    <span>
-                                        ₼{product.oldPrice}
-                                    </span>
+                                    {displayProduct.oldPrice !== null &&
+                                        displayProduct.oldPrice !== undefined && (
+
+                                            <span>
+                                                ₼{displayProduct.oldPrice}
+                                            </span>
+
+                                        )}
 
                                     <strong>
-                                        ₼{product.price}
+                                        ₼{displayProduct.price}
                                     </strong>
 
                                 </div>
@@ -289,12 +344,20 @@ function UsedProductCard() {
                                     className="details-cart-btn"
                                     type="button"
                                     onClick={() => {
-                                        addToCart(product);
+
+                                        addToCart(
+                                            displayProduct
+                                        );
+
                                         setIsDetailsOpen(false);
+
                                     }}
                                 >
+
                                     <FiShoppingCart />
+
                                     Add To Cart
+
                                 </button>
 
                             </div>
@@ -304,6 +367,7 @@ function UsedProductCard() {
                     </div>
 
                 </div>
+
             )}
 
         </>

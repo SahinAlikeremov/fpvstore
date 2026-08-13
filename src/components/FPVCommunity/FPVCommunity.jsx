@@ -9,7 +9,9 @@ function FPVCommunity() {
     return (
         <section className="community-card">
 
-            <h2>FPV COMMUNITY</h2>
+            <h2>
+                FPV COMMUNITY
+            </h2>
 
             <p>
                 Join the FPV pilots community
@@ -17,16 +19,27 @@ function FPVCommunity() {
 
             <div className="community-grid">
 
-                <img src={img1} alt="" />
-                <img src={img2} alt="" />
-                <img src={img3} alt="" />
-                <img src={img4} alt="" />
+                <img
+                    src={img1}
+                    alt=""
+                />
+
+                <img
+                    src={img2}
+                    alt=""
+                />
+
+                <img
+                    src={img3}
+                    alt=""
+                />
+
+                <img
+                    src={img4}
+                    alt=""
+                />
 
             </div>
-
-            <button>
-                JOIN COMMUNITY
-            </button>
 
         </section>
     );

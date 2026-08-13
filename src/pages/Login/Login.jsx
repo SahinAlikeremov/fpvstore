@@ -1,10 +1,13 @@
 import "./Login.css";
+
 import { Link, useNavigate } from "react-router-dom";
+
 import {
     FiMail,
     FiLock,
     FiLogIn
 } from "react-icons/fi";
+
 import { useState } from "react";
 
 function Login() {
@@ -13,6 +16,7 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [rememberMe, setRememberMe] = useState(true);
 
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState("");
@@ -39,7 +43,8 @@ function Login() {
 
                     body: JSON.stringify({
                         email,
-                        password
+                        password,
+                        rememberMe
                     })
                 }
             );
@@ -49,7 +54,8 @@ function Login() {
             if (!response.ok) {
 
                 setMessage(
-                    data.message || "Invalid email or password."
+                    data.message ||
+                    "Invalid email or password."
                 );
 
                 setMessageType("error");
@@ -66,7 +72,10 @@ function Login() {
 
         } catch (error) {
 
-            console.error("Login error:", error);
+            console.error(
+                "Login error:",
+                error
+            );
 
             setMessage(
                 "Cannot connect to the server. Make sure the backend is running."
@@ -80,10 +89,14 @@ function Login() {
         <main className="login-page">
 
             {message && (
-                <div className={`login-message ${messageType}`}>
+                <div
+                    className={`login-message ${messageType}`}
+                >
 
                     <div className="login-message-icon">
-                        {messageType === "success" ? "✓" : "!"}
+                        {messageType === "success"
+                            ? "✓"
+                            : "!"}
                     </div>
 
                     <div className="login-message-content">
@@ -107,7 +120,9 @@ function Login() {
 
                 <div className="login-header">
 
-                    <span>WELCOME BACK</span>
+                    <span>
+                        WELCOME BACK
+                    </span>
 
                     <h1>
                         LOGIN <strong>ACCOUNT</strong>
@@ -126,7 +141,9 @@ function Login() {
 
                     <div className="login-field">
 
-                        <label>Email</label>
+                        <label>
+                            Email
+                        </label>
 
                         <div className="login-input">
 
@@ -148,7 +165,9 @@ function Login() {
 
                     <div className="login-field">
 
-                        <label>Password</label>
+                        <label>
+                            Password
+                        </label>
 
                         <div className="login-input">
 
@@ -167,6 +186,24 @@ function Login() {
                         </div>
 
                     </div>
+
+                    <label className="remember-me">
+
+                        <input
+                            type="checkbox"
+                            checked={rememberMe}
+                            onChange={(e) =>
+                                setRememberMe(
+                                    e.target.checked
+                                )
+                            }
+                        />
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
 
                     <button
                         type="submit"

@@ -152,3 +152,156 @@
         font-size: 34px;
     }
 }
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 4px 0 8px;
+
+    color: #8a8a8a;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: #ff3131;
+
+    cursor: pointer;
+}
+
+.remember-me span {
+    user-select: none;
+}
+
+.login-message {
+    position: fixed;
+
+    top: 24px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    min-width: 360px;
+    max-width: 520px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 18px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 49, 49, 0.96),
+        rgba(190, 25, 25, 0.96)
+    );
+
+    border: 1px solid rgba(255, 120, 120, 0.4);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(255, 49, 49, 0.22);
+
+    color: #fff;
+
+    z-index: 99999;
+
+    animation: loginMessageIn 0.35s ease;
+}
+
+.login-message-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.login-message-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.login-message-content strong {
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+}
+
+.login-message-content span {
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.login-message.error {
+    background: linear-gradient(
+        135deg,
+        rgba(210, 35, 35, 0.97),
+        rgba(145, 20, 20, 0.97)
+    );
+}
+
+@keyframes loginMessageIn {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .login-message {
+        top: 16px;
+
+        width: calc(100% - 30px);
+
+        min-width: 0;
+        max-width: none;
+
+        padding: 13px 15px;
+    }
+
+}

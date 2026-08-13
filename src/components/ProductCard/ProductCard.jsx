@@ -6,6 +6,8 @@ import {
     FiStar
 } from "react-icons/fi";
 
+import { useNavigate } from "react-router-dom";
+
 import { useWishlist } from "../../contexts/WishlistContext";
 import { useCart } from "../../contexts/CartContext";
 
@@ -29,6 +31,8 @@ function ProductCard({
     rating,
     reviews
 }) {
+
+    const navigate = useNavigate();
 
     const {
         toggleWishlist,
@@ -66,6 +70,10 @@ function ProductCard({
 
     const liked = isInWishlist(id);
 
+    const openProduct = () => {
+        navigate(`/products/${id}`);
+    };
+
     return (
         <div className="product-card">
 
@@ -88,7 +96,11 @@ function ProductCard({
                 <FiHeart />
             </button>
 
-            <div className="product-image">
+            <div
+                className="product-image"
+                onClick={openProduct}
+                style={{ cursor: "pointer" }}
+            >
 
                 <img
                     src={imagePath}
@@ -103,7 +115,10 @@ function ProductCard({
                     {brand}
                 </span>
 
-                <h3>
+                <h3
+                    onClick={openProduct}
+                    style={{ cursor: "pointer" }}
+                >
                     {title}
                 </h3>
 

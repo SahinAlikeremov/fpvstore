@@ -1,11 +1,14 @@
 import "./Signup.css";
+
 import { Link, useNavigate } from "react-router-dom";
+
 import {
     FiUser,
     FiMail,
     FiLock,
     FiUserPlus
 } from "react-icons/fi";
+
 import { useState } from "react";
 
 function Signup() {
@@ -81,7 +84,10 @@ function Signup() {
 
         } catch (error) {
 
-            console.error("Signup error:", error);
+            console.error(
+                "Signup error:",
+                error
+            );
 
             setMessage(
                 "Cannot connect to the server. Make sure the backend is running."
@@ -95,10 +101,14 @@ function Signup() {
         <main className="signup-page">
 
             {message && (
-                <div className={`signup-message ${messageType}`}>
+                <div
+                    className={`signup-message ${messageType}`}
+                >
 
                     <div className="signup-message-icon">
-                        {messageType === "success" ? "✓" : "!"}
+                        {messageType === "success"
+                            ? "✓"
+                            : "!"}
                     </div>
 
                     <div className="signup-message-content">
@@ -122,7 +132,9 @@ function Signup() {
 
                 <div className="signup-header">
 
-                    <span>JOIN FPVSTORE</span>
+                    <span>
+                        JOIN FPVSTORE
+                    </span>
 
                     <h1>
                         CREATE <strong>ACCOUNT</strong>
@@ -141,7 +153,9 @@ function Signup() {
 
                     <div className="signup-field">
 
-                        <label>Username</label>
+                        <label>
+                            Username
+                        </label>
 
                         <div className="signup-input">
 
@@ -163,7 +177,9 @@ function Signup() {
 
                     <div className="signup-field">
 
-                        <label>Email</label>
+                        <label>
+                            Email
+                        </label>
 
                         <div className="signup-input">
 
@@ -185,7 +201,9 @@ function Signup() {
 
                     <div className="signup-field">
 
-                        <label>Password</label>
+                        <label>
+                            Password
+                        </label>
 
                         <div className="signup-input">
 
@@ -207,7 +225,9 @@ function Signup() {
 
                     <div className="signup-field">
 
-                        <label>Confirm Password</label>
+                        <label>
+                            Confirm Password
+                        </label>
 
                         <div className="signup-input">
 

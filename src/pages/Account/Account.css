@@ -1,0 +1,838 @@
+.account-page {
+    min-height: 100vh;
+    background: #050505;
+    padding: 150px 40px 100px;
+}
+
+.account-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.account-header {
+    margin-bottom: 40px;
+}
+
+.account-header > span {
+    color: #ff3131;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.account-header h1 {
+    margin: 10px 0 12px;
+
+    color: #fff;
+
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.account-header h1 strong {
+    color: #ff3131;
+}
+
+.account-header p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.account-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.account-card {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    min-height: 110px;
+
+    padding: 22px;
+
+    background: #0d0d0d;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    transition: 0.25s ease;
+}
+
+.account-card:hover {
+    border-color: rgba(255, 49, 49, 0.35);
+
+    transform: translateY(-2px);
+}
+
+.account-card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 49, 49, 0.08);
+
+    border: 1px solid rgba(255, 49, 49, 0.15);
+
+    border-radius: 12px;
+
+    color: #ff3131;
+
+    font-size: 21px;
+}
+
+.account-card-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.account-card-content span {
+    color: #666;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.account-card-content strong {
+    color: #fff;
+
+    font-size: 16px;
+
+    word-break: break-word;
+}
+
+.account-orders-section {
+    margin-top: 40px;
+}
+
+.account-orders-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.account-orders-header > div > span {
+    color: #ff3131;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.account-orders-header h2 {
+    margin: 7px 0 0;
+
+    color: #fff;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+.account-orders-header h2 strong {
+    color: #ff3131;
+}
+
+.account-orders-count {
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.account-orders-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.account-order-card {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 16px 18px;
+
+    background: #0d0d0d;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 13px;
+
+    color: #fff;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.account-order-card:hover {
+    border-color: rgba(255, 49, 49, 0.3);
+
+    background: #101010;
+
+    transform: translateY(-1px);
+}
+
+.account-order-card:focus {
+    outline: none;
+}
+
+.account-order-card:focus-visible {
+    outline: 2px solid rgba(255, 49, 49, 0.5);
+
+    outline-offset: 2px;
+}
+
+.account-order-main {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.account-order-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #ff3131;
+
+    background: rgba(255, 49, 49, 0.08);
+
+    border: 1px solid rgba(255, 49, 49, 0.15);
+
+    border-radius: 10px;
+}
+
+.account-order-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    min-width: 0;
+}
+
+.account-order-info span {
+    color: #777;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.account-order-info strong {
+    color: #fff;
+
+    font-size: 15px;
+}
+
+.account-order-status {
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+.account-order-status.pending {
+    color: #ffb347;
+
+    background: rgba(255, 179, 71, 0.08);
+
+    border: 1px solid rgba(255, 179, 71, 0.15);
+}
+
+.account-order-status.confirmed {
+    color: #78e08f;
+
+    background: rgba(120, 224, 143, 0.08);
+
+    border: 1px solid rgba(120, 224, 143, 0.15);
+}
+
+.account-order-status.completed {
+    color: #6fc3ff;
+
+    background: rgba(111, 195, 255, 0.08);
+
+    border: 1px solid rgba(111, 195, 255, 0.15);
+}
+
+.account-order-status.cancelled {
+    color: #ff5a5a;
+
+    background: rgba(255, 49, 49, 0.08);
+
+    border: 1px solid rgba(255, 49, 49, 0.15);
+}
+
+.account-orders-empty {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: #0d0d0d;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 15px;
+
+    color: #777;
+}
+
+.account-orders-empty svg {
+    margin-bottom: 10px;
+
+    color: #ff3131;
+
+    font-size: 25px;
+}
+
+.account-orders-empty h3 {
+    margin: 0 0 7px;
+
+    color: #fff;
+
+    font-size: 15px;
+}
+
+.account-orders-empty p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+.account-actions {
+    margin-top: 30px;
+}
+
+.account-logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 160px;
+    height: 48px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 49, 49, 0.2);
+
+    border-radius: 10px;
+
+    background: rgba(255, 49, 49, 0.08);
+
+    color: #ff3131;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.account-logout:hover {
+    background: #ff3131;
+
+    color: #fff;
+}
+
+.account-loading,
+.account-error {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #888;
+
+    font-size: 15px;
+}
+
+.order-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+
+    overscroll-behavior: contain;
+
+    z-index: 100000;
+}
+
+.order-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 620px;
+
+    max-height: calc(100vh - 40px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    padding: 28px;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.75),
+        0 0 40px rgba(255, 49, 49, 0.08);
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+
+    animation: orderModalIn 0.22s ease;
+}
+
+.order-modal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.order-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.order-modal::-webkit-scrollbar-thumb {
+    background: #333;
+
+    border-radius: 999px;
+}
+
+.order-modal::-webkit-scrollbar-thumb:hover {
+    background: #ff3131;
+}
+
+@keyframes orderModalIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+.order-modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    background: #181818;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.order-modal-close:hover {
+    color: #fff;
+
+    border-color: rgba(255, 49, 49, 0.35);
+
+    background: rgba(255, 49, 49, 0.08);
+}
+
+.order-modal-header {
+    padding-right: 48px;
+
+    margin-bottom: 24px;
+}
+
+.order-modal-header > span {
+    color: #ff3131;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.order-modal-header h2 {
+    margin: 8px 0 12px;
+
+    color: #fff;
+
+    font-size: 28px;
+}
+
+.order-modal-items {
+    padding: 18px 0;
+
+    border-top: 1px solid #242424;
+
+    border-bottom: 1px solid #242424;
+}
+
+.order-modal-section-title {
+    color: #ff3131;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.order-modal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 0;
+}
+
+.order-modal-item > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.order-modal-item strong {
+    color: #fff;
+
+    font-size: 13px;
+}
+
+.order-modal-item span {
+    color: #777;
+
+    font-size: 11px;
+}
+
+.order-modal-no-items {
+    padding-top: 15px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.order-modal-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.order-modal-info > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 14px;
+
+    background: #0c0c0c;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 11px;
+}
+
+.order-modal-info span {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #666;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.order-modal-info span svg {
+    color: #ff3131;
+}
+
+.order-modal-info strong {
+    color: #fff;
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+.order-modal-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #242424;
+}
+
+.order-modal-total span {
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.order-modal-total strong {
+    color: #ff3131;
+
+    font-size: 25px;
+}
+
+.order-modal-loading {
+    padding: 25px 30px;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.order-modal-error {
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 49, 49, 0.2);
+
+    border-radius: 14px;
+
+    color: #ff5a5a;
+}
+
+.order-modal-error strong {
+    color: #fff;
+
+    font-size: 13px;
+}
+
+.order-modal-error span {
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.order-modal-error button {
+    height: 42px;
+
+    margin-top: 6px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #ff3131;
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+
+    .account-page {
+        padding: 120px 20px 70px;
+    }
+
+    .account-header h1 {
+        font-size: 32px;
+    }
+
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-orders-header {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .account-orders-header h2 {
+        font-size: 23px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .order-modal-overlay {
+        align-items: flex-end;
+
+        padding: 12px;
+    }
+
+    .order-modal {
+        max-height: calc(100vh - 24px);
+
+        padding: 20px;
+
+        border-radius: 17px 17px 12px 12px;
+    }
+
+    .order-modal-header h2 {
+        font-size: 23px;
+    }
+
+    .order-modal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .account-order-card {
+        gap: 12px;
+    }
+
+    .account-order-status {
+        flex-shrink: 0;
+    }
+
+}
+
+.account-card-clickable {
+    cursor: pointer;
+}
+
+.account-card-clickable:hover {
+    border-color: rgba(255, 49, 49, 0.4);
+    transform: translateY(-3px);
+}

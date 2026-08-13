@@ -205,3 +205,31 @@
         padding: 25px 20px;
     }
 }
+
+.cart-order-message {
+    margin-top: 14px;
+    padding: 12px 14px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.cart-order-message.success {
+    color: #78e08f;
+    background: rgba(120, 224, 143, 0.08);
+    border: 1px solid rgba(120, 224, 143, 0.16);
+}
+
+.cart-order-message.error {
+    color: #ff5a5a;
+    background: rgba(255, 49, 49, 0.08);
+    border: 1px solid rgba(255, 49, 49, 0.16);
+}
+
+.cart-summary-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
