@@ -24,6 +24,9 @@ function Navbar() {
     const [isAccountHovered, setIsAccountHovered] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const [user, setUser] = useState(null);
+    const [authLoading, setAuthLoading] = useState(true);
+
     useEffect(() => {
 
         const handleResize = () => {
@@ -41,6 +44,52 @@ function Navbar() {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
+
+    }, []);
+
+    useEffect(() => {
+
+        const checkAuth = async () => {
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:8080/api/auth/me",
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+
+                if (response.ok) {
+
+                    const data = await response.json();
+
+                    setUser(data);
+
+                } else {
+
+                    setUser(null);
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Authentication check failed:",
+                    error
+                );
+
+                setUser(null);
+
+            } finally {
+
+                setAuthLoading(false);
+
+            }
+        };
+
+        checkAuth();
 
     }, []);
 
@@ -140,84 +189,87 @@ function Navbar() {
 
                     <div className="right-side">
 
-    <div className="search-box">
+                        <div className="search-box">
 
-        <FiSearch />
+                            <FiSearch />
 
-        <input
-            type="text"
-            placeholder={
-                isSmallScreen
-                    ? "Search..."
-                    : "Search products..."
-            }
-        />
+                            <input
+                                type="text"
+                                placeholder={
+                                    isSmallScreen
+                                        ? "Search..."
+                                        : "Search products..."
+                                }
+                            />
 
-    </div>
+                        </div>
 
-    <NavLink
-        to="/wishlist"
-        className={({ isActive }) =>
-            `icon-btn ${isActive ? "active" : ""}`
-        }
-        aria-label="Wishlist"
-    >
-        <FiHeart />
-    </NavLink>
+                        <NavLink
+                            to="/wishlist"
+                            className={({ isActive }) =>
+                                `icon-btn ${isActive ? "active" : ""}`
+                            }
+                            aria-label="Wishlist"
+                        >
+                            <FiHeart />
+                        </NavLink>
 
-    <NavLink
-        to="/cart"
-        className={({ isActive }) =>
-            `icon-btn ${isActive ? "active" : ""}`
-        }
-        aria-label="Shopping Cart"
-    >
-        <FiShoppingCart />
-    </NavLink>
+                        <NavLink
+                            to="/cart"
+                            className={({ isActive }) =>
+                                `icon-btn ${isActive ? "active" : ""}`
+                            }
+                            aria-label="Shopping Cart"
+                        >
+                            <FiShoppingCart />
+                        </NavLink>
 
-    {/* ACCOUNT */}
-    <div
-        className="account-wrapper"
-        onMouseEnter={() =>
-            setIsAccountHovered(true)
-        }
-        onMouseLeave={() =>
-            setIsAccountHovered(false)
-        }
-    >
+                        <div
+                            className="account-wrapper"
+                            onMouseEnter={() =>
+                                setIsAccountHovered(true)
+                            }
+                            onMouseLeave={() =>
+                                setIsAccountHovered(false)
+                            }
+                        >
 
-        <button
-            className="icon-btn"
-            type="button"
-            aria-label="Account"
-            onClick={() =>
-                setIsAccountOpen((prev) => !prev)
-            }
-        >
-            <FiUser />
-        </button>
+                            <button
+                                className="icon-btn"
+                                type="button"
+                                aria-label="Account"
+                                onClick={() =>
+                                    setIsAccountOpen((prev) => !prev)
+                                }
+                            >
+                                <FiUser />
+                            </button>
 
-        <AccountMenu
-            isOpen={showAccountMenu}
-            onClose={() =>
-                setIsAccountOpen(false)
-            }
-        />
+                            {!authLoading && (
+                                <AccountMenu
+                                    isOpen={showAccountMenu}
+                                    onClose={() =>
+                                        setIsAccountOpen(false)
+                                    }
+                                    user={user}
+                                    setUser={setUser}
+                                />
+                            )}
 
-    </div>
+                        </div>
 
-    <button
-        className="menu-btn"
-        type="button"
-        aria-label="Menu"
-        onClick={() =>
-            setIsMenuOpen(true)
-        }
-    >
-        <FiMenu />
-    </button>
+                        <button
+                            className="menu-btn"
+                            type="button"
+                            aria-label="Menu"
+                            onClick={() =>
+                                setIsMenuOpen(true)
+                            }
+                        >
+                            <FiMenu />
+                        </button>
 
-</div>
+                    </div>
 
                 </div>
 
