@@ -2,7 +2,10 @@ import "./CommunityCTA.css";
 
 import { FiArrowRight } from "react-icons/fi";
 
+import { Link } from "react-router-dom";
+
 function CommunityCTA() {
+
     return (
 
         <section className="community-cta">
@@ -25,19 +28,40 @@ function CommunityCTA() {
                     Azerbaijan's fastest growing FPV community.
                 </p>
 
-                <button>
 
-                    Explore Products
+                <div className="community-cta-buttons">
 
-                    <FiArrowRight />
+                    <Link
+                        to="/signup"
+                        className="community-btn primary"
+                    >
 
-                </button>
+                        JOIN COMMUNITY
+
+                        <FiArrowRight />
+
+                    </Link>
+
+
+                    <Link
+                        to="/products"
+                        className="community-btn secondary"
+                    >
+
+                        EXPLORE PRODUCTS
+
+                        <FiArrowRight />
+
+                    </Link>
+
+                </div>
 
             </div>
 
         </section>
 
     );
+
 }
 
 export default CommunityCTA;

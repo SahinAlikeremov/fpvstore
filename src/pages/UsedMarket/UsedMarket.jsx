@@ -1,5 +1,7 @@
 import "./UsedMarket.css";
 
+import { useState } from "react";
+
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -9,21 +11,35 @@ import UsedProductGrid from "../../components/UsedProductGrid/UsedProductGrid";
 import SellYourGear from "../../components/SellYourGear/SellYourGear";
 
 function UsedMarket() {
-  return (
-    <>
-      <Navbar />
 
-      <UsedHero />
+    const [filters, setFilters] = useState({
+        category: "all",
+        brand: "all",
+        condition: "all",
+        price: "all",
+        sort: "newest"
+    });
 
-      <UsedFilters />
+    return (
+        <>
+            <Navbar />
 
-      <UsedProductGrid />
+            <UsedHero />
 
-      <SellYourGear />
+            <UsedFilters
+                filters={filters}
+                setFilters={setFilters}
+            />
 
-      <Footer />
-    </>
-  );
+            <UsedProductGrid
+                filters={filters}
+            />
+
+            <SellYourGear />
+
+            <Footer />
+        </>
+    );
 }
 
 export default UsedMarket;

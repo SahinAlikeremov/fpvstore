@@ -52,7 +52,7 @@ function ContactInfo() {
                     <h3>Phone</h3>
 
                     <p>
-                        +994 50 123 45 67
+                        +994 70 799 10 70
                     </p>
 
                 </div>
@@ -66,7 +66,7 @@ function ContactInfo() {
                     <h3>Location</h3>
 
                     <p>
-                        Baku, Azerbaijan
+                        Xırdalan, Azerbaijan
                     </p>
 
                 </div>
@@ -81,7 +81,7 @@ function ContactInfo() {
 
                     <p>
                         Mon - Sat<br />
-                        09:00 - 18:00
+                        11:00 - 23:00
                     </p>
 
                 </div>

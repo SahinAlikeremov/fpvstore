@@ -51,11 +51,11 @@ function Testimonials() {
                         <div>
 
                             <h4>
-                                Elçin
+                                Elçin H.
                             </h4>
 
                             <span>
-                                FPV Racing Pilot
+                                Professional FPV Racing Pilot
                             </span>
 
                         </div>
@@ -89,11 +89,11 @@ function Testimonials() {
                         <div>
 
                             <h4>
-                                Şahin
+                                Şahin A.
                             </h4>
 
                             <span>
-                                Freestyle Pilot
+                                Freestyle & Racing Pilot
                             </span>
 
                         </div>
@@ -127,11 +127,11 @@ function Testimonials() {
                         <div>
 
                             <h4>
-                                Fərid
+                                Fərid İ.
                             </h4>
 
                             <span>
-                                Long Range Pilot
+                                Freestyle Pilot
                             </span>
 
                         </div>

@@ -22,7 +22,7 @@ function SupportOptions() {
 
                 <p>
                     Whether you have questions about your order,
-                    shipping, technical issues or general inquiries,
+                    delivery, technical issues or general inquiries,
                     our team is ready to help.
                 </p>
 
@@ -58,12 +58,11 @@ function SupportOptions() {
                     </div>
 
                     <h3>
-                        Shipping
+                        Delivery & Pickup
                     </h3>
 
                     <p>
-                        Learn about delivery times,
-                        tracking and shipping options.
+                        Need help with delivery, Bolt Send or <br /> in-person pickup?
                     </p>
 
                 </div>

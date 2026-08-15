@@ -1,7 +1,14 @@
 import "./Products.css";
 
-import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import {
+    useEffect,
+    useMemo,
+    useState
+} from "react";
+
+import {
+    useSearchParams
+} from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -12,12 +19,14 @@ import ProductGrid from "../../components/ProductGrid/ProductGrid";
 
 function Products() {
 
+    const [searchParams] = useSearchParams();
+
     const [products, setProducts] = useState([]);
+
     const [search, setSearch] = useState("");
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-
-    const [searchParams, setSearchParams] = useSearchParams();
 
     const [filters, setFilters] = useState({
         category: "all",
@@ -28,22 +37,39 @@ function Products() {
 
     useEffect(() => {
 
-        const searchValue =
-            searchParams.get("search") || "";
+        const categoryFromUrl =
+            searchParams.get("category");
 
-        setSearch(searchValue);
+        const brandFromUrl =
+            searchParams.get("brand");
+
+        setFilters((currentFilters) => ({
+            ...currentFilters,
+
+            category:
+                categoryFromUrl ||
+                "all",
+
+            brand:
+                brandFromUrl ||
+                "all"
+        }));
 
     }, [searchParams]);
 
     useEffect(() => {
 
-        fetch("http://localhost:8080/api/products")
+        fetch(
+            "http://localhost:8080/api/products"
+        )
             .then((response) => {
 
                 if (!response.ok) {
+
                     throw new Error(
                         "Products could not be loaded"
                     );
+
                 }
 
                 return response.json();
@@ -69,70 +95,61 @@ function Products() {
 
     }, []);
 
-    const handleSearchChange = (value) => {
-
-        setSearch(value);
-
-        const trimmedValue = value.trim();
-
-        if (trimmedValue) {
-
-            setSearchParams({
-                search: trimmedValue
-            });
-
-        } else {
-
-            setSearchParams({});
-
-        }
-
-    };
-
     const filteredProducts = useMemo(() => {
 
         let result = [...products];
 
         if (search.trim()) {
 
-            const searchValue = search
-                .toLowerCase()
-                .trim();
-
-            result = result.filter((product) =>
-                product.title
-                    ?.toLowerCase()
-                    .includes(searchValue) ||
-
-                product.brand
-                    ?.toLowerCase()
-                    .includes(searchValue) ||
-
-                product.category
-                    ?.toLowerCase()
-                    .includes(searchValue)
-            );
-        }
-
-        if (filters.category !== "all") {
+            const searchValue =
+                search
+                    .toLowerCase()
+                    .trim();
 
             result = result.filter(
                 (product) =>
-                    product.category === filters.category
+                    product.title
+                        .toLowerCase()
+                        .includes(searchValue) ||
+
+                    product.brand
+                        .toLowerCase()
+                        .includes(searchValue) ||
+
+                    product.category
+                        .toLowerCase()
+                        .includes(searchValue)
             );
 
         }
 
-        if (filters.brand !== "all") {
+        if (
+            filters.category !== "all"
+        ) {
 
             result = result.filter(
                 (product) =>
-                    product.brand === filters.brand
+                    product.category ===
+                    filters.category
             );
 
         }
 
-        if (filters.price === "under100") {
+        if (
+            filters.brand !== "all"
+        ) {
+
+            result = result.filter(
+                (product) =>
+                    product.brand ===
+                    filters.brand
+            );
+
+        }
+
+        if (
+            filters.price === "under100"
+        ) {
 
             result = result.filter(
                 (product) =>
@@ -141,7 +158,9 @@ function Products() {
 
         }
 
-        if (filters.price === "100-300") {
+        if (
+            filters.price === "100-300"
+        ) {
 
             result = result.filter(
                 (product) =>
@@ -151,7 +170,9 @@ function Products() {
 
         }
 
-        if (filters.price === "over300") {
+        if (
+            filters.price === "over300"
+        ) {
 
             result = result.filter(
                 (product) =>
@@ -160,7 +181,9 @@ function Products() {
 
         }
 
-        if (filters.price === "low") {
+        if (
+            filters.price === "low"
+        ) {
 
             result.sort(
                 (a, b) =>
@@ -169,7 +192,9 @@ function Products() {
 
         }
 
-        if (filters.price === "high") {
+        if (
+            filters.price === "high"
+        ) {
 
             result.sort(
                 (a, b) =>
@@ -178,20 +203,26 @@ function Products() {
 
         }
 
-        if (filters.sort === "popular") {
+        if (
+            filters.sort === "popular"
+        ) {
 
             result.sort(
                 (a, b) =>
-                    b.popularity - a.popularity
+                    b.popularity -
+                    a.popularity
             );
 
         }
 
-        if (filters.sort === "rating") {
+        if (
+            filters.sort === "rating"
+        ) {
 
             result.sort(
                 (a, b) =>
-                    b.rating - a.rating
+                    b.rating -
+                    a.rating
             );
 
         }
@@ -212,32 +243,43 @@ function Products() {
 
                 <ProductsHero
                     search={search}
-                    setSearch={handleSearchChange}
+                    setSearch={setSearch}
                 />
 
                 <ProductFilters
                     filters={filters}
                     setFilters={setFilters}
-                    productCount={filteredProducts.length}
+                    productCount={
+                        filteredProducts.length
+                    }
                 />
 
                 {loading && (
+
                     <p>
                         Loading products...
                     </p>
+
                 )}
 
                 {error && (
+
                     <p>
                         {error}
                     </p>
+
                 )}
 
-                {!loading && !error && (
-                    <ProductGrid
-                        products={filteredProducts}
-                    />
-                )}
+                {!loading &&
+                    !error && (
+
+                        <ProductGrid
+                            products={
+                                filteredProducts
+                            }
+                        />
+
+                    )}
 
             </main>
 

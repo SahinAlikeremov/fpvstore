@@ -1,120 +1,230 @@
 import "./Footer.css";
 
 import {
-  FaInstagram,
-  FaYoutube,
-  FaTelegramPlane,
-  FaTiktok,
+    FaInstagram,
+    FaYoutube,
+    FaTelegramPlane,
+    FaTiktok
 } from "react-icons/fa";
 
+import { Link } from "react-router-dom";
+
+
 function Footer() {
-  return (
-    <footer className="footer">
 
-      <div className="footer-container">
+    const whatsappUrl =
+        "https://wa.me/994707991070";
 
-        <div className="footer-column">
 
-          <h2 className="footer-logo">
-            FPVStore<span>.az</span>
-          </h2>
+    return (
 
-          <p className="footer-text">
-            The most trusted FPV marketplace in Azerbaijan.
-            <br />
-            No shipping. No waiting.
-            <br />
-            We meet in Baku.
-          </p>
+        <footer className="footer">
 
-          <div className="footer-socials">
+            <div className="footer-container">
 
-            <a href="#">
-              <FaInstagram />
-            </a>
 
-            <a href="#">
-              <FaYoutube />
-            </a>
+                {/* BRAND */}
 
-            <a href="#">
-              <FaTelegramPlane />
-            </a>
+                <div className="footer-column">
 
-            <a href="#">
-              <FaTiktok />
-            </a>
+                    <h2 className="footer-logo">
+                        FPVStore<span>.az</span>
+                    </h2>
 
-          </div>
+                    <p className="footer-text">
+                        The most trusted FPV marketplace in Azerbaijan.
+                        <br />
+                        Pickup in Baku.
+                        <br />
+                        Bolt Send available on request.
+                    </p>
 
-        </div>
 
-        <div className="footer-column">
+                    <div className="footer-socials">
 
-          <h3>QUICK LINKS</h3>
+                        <a
+                            href="https://instagram.com/sahin_fpv"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <FaInstagram />
+                        </a>
 
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="/brands">Brands</a>
-          <a href="/used-market">Used Market</a>
-          <a href="/community">Community</a>
-          <a href="/support">Support</a>
 
-        </div>
+                        <a
+                            href="#"
+                            aria-label="YouTube"
+                        >
+                            <FaYoutube />
+                        </a>
 
-        <div className="footer-column">
 
-          <h3>INFORMATION</h3>
+                        <a
+                            href="#"
+                            aria-label="Telegram"
+                        >
+                            <FaTelegramPlane />
+                        </a>
 
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
 
-        </div>
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            <FaTiktok />
+                        </a>
 
-        <div className="footer-column">
+                    </div>
 
-          <h3>CATEGORIES</h3>
+                </div>
 
-          <a href="#">Racing</a>
-          <a href="#">Freestyle</a>
-          <a href="#">Long Range</a>
-          <a href="#">Cinewhoop</a>
-          <a href="#">Tinywhoop</a>
 
-        </div>
+                {/* QUICK LINKS */}
 
-        <div className="footer-column">
+                <div className="footer-column">
 
-          <h3>CONTACT</h3>
+                    <h3>
+                        QUICK LINKS
+                    </h3>
 
-          <p>📱 WhatsApp: +994 70 799 10 70</p>
+                    <Link to="/">
+                        Home
+                    </Link>
 
-          <p>📷 Instagram: @sahin_fpv</p>
+                    <Link to="/products">
+                        Products
+                    </Link>
 
-          <p>✈ Facebook: @sahin_fpv</p>
+                    <Link to="/brands">
+                        Brands
+                    </Link>
 
-          <p>📍 Baku, Azerbaijan</p>
+                    <Link to="/used-market">
+                        Used Market
+                    </Link>
 
-        </div>
+                    <Link to="/community">
+                        Community
+                    </Link>
 
-      </div>
+                    <Link to="/support">
+                        Support
+                    </Link>
 
-      <div className="footer-bottom">
+                </div>
 
-        <span>
-          © 2026 FPVStore.az — All Rights Reserved.
-        </span>
 
-        <span>
-          Made with ❤️ for FPV Pilots
-        </span>
+                {/* INFORMATION */}
 
-      </div>
+                <div className="footer-column">
 
-    </footer>
-  );
+                    <h3>
+                        INFORMATION
+                    </h3>
+
+                    <Link to="/about">
+                        About Us
+                    </Link>
+
+                    <Link to="/support">
+                        Contact
+                    </Link>
+
+                    <Link to="/terms">
+                        Terms & Conditions
+                    </Link>
+
+                    <Link to="/privacy">
+                        Privacy Policy
+                    </Link>
+
+                </div>
+
+
+                {/* CATEGORIES */}
+
+                <div className="footer-column">
+
+                    <h3>
+                        CATEGORIES
+                    </h3>
+
+                    <Link to="/products?category=Racing">
+                        Racing
+                    </Link>
+
+                    <Link to="/products?category=Freestyle">
+                        Freestyle
+                    </Link>
+
+                    <Link to="/products?category=Long%20Range">
+                        Long Range
+                    </Link>
+
+                    <Link to="/products?category=Cinewhoop">
+                        Cinewhoop
+                    </Link>
+
+                    <Link to="/products?category=Tinywhoop">
+                        Tinywhoop
+                    </Link>
+
+                </div>
+
+
+                {/* CONTACT */}
+
+                <div className="footer-column">
+
+                    <h3>
+                        CONTACT
+                    </h3>
+
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        📱 WhatsApp: +994 70 799 10 70
+                    </a>
+
+                    <a
+                        href="https://instagram.com/sahin_fpv"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        📷 Instagram: @sahin_fpv
+                    </a>
+
+                    <p>
+                        ✈ Facebook: @sahin_fpv
+                    </p>
+
+                    <p>
+                        📍 Baku, Azerbaijan
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div className="footer-bottom">
+
+                <span>
+                    © 2026 FPVStore.az — All Rights Reserved.
+                </span>
+
+                <span>
+                    Made with ❤️ for FPV Pilots
+                </span>
+
+            </div>
+
+        </footer>
+    );
 }
+
 
 export default Footer;

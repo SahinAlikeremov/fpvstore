@@ -13,6 +13,10 @@ import Wishlist from "./pages/Wishlist/Wishlist";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Account from "./pages/Account/Account";
+import About from "./pages/About/About";
+import Terms from "./pages/Terms/Terms";
+import Privacy from "./pages/Privacy/Privacy";
+import AdminOrders from "./pages/AdminOrders/AdminOrders";
 
 
 function App() {
@@ -82,6 +86,26 @@ function App() {
                 <Route
                     path="/account"
                     element={<Account />}
+                />
+
+                <Route
+                    path="/about"
+                    element={<About />}
+                />
+
+                <Route
+                    path="/terms"
+                    element={<Terms />}
+                />
+
+                <Route
+                    path="/privacy"
+                    element={<Privacy />}
+                />
+
+                <Route
+                    path="/admin/orders"
+                    element={<AdminOrders />}
                 />
 
             </Routes>

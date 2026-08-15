@@ -11,7 +11,8 @@ import {
     FiLogOut,
     FiX,
     FiMapPin,
-    FiPhone
+    FiPhone,
+    FiLock
 } from "react-icons/fi";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -41,10 +42,21 @@ function Account() {
 
     const [error, setError] = useState("");
 
+    const [passwordForm, setPasswordForm] = useState({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: ""
+    });
+
+    const [passwordLoading, setPasswordLoading] = useState(false);
+    const [passwordSuccess, setPasswordSuccess] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+
     const modalOpen =
         Boolean(selectedOrder) ||
         orderLoading ||
         Boolean(orderError);
+
 
     useEffect(() => {
 
@@ -70,6 +82,7 @@ function Account() {
                     await userResponse.json();
 
                 setUser(userData);
+
 
                 const ordersResponse = await fetch(
                     "http://localhost:8080/api/orders",
@@ -114,6 +127,7 @@ function Account() {
         loadAccount();
 
     }, [navigate]);
+
 
     useEffect(() => {
 
@@ -175,6 +189,7 @@ function Account() {
         selectedOrder
     ]);
 
+
     const handleLogout = async () => {
 
         try {
@@ -196,6 +211,7 @@ function Account() {
         navigate("/");
 
     };
+
 
     const handleOrderClick = async (orderId) => {
 
@@ -267,6 +283,7 @@ function Account() {
         }
     };
 
+
     const closeOrderModal = () => {
 
         setSelectedOrder(null);
@@ -275,6 +292,144 @@ function Account() {
         setOrderLoading(false);
 
     };
+
+
+    const handlePasswordChange = (event) => {
+
+        const {
+            name,
+            value
+        } = event.target;
+
+        setPasswordForm((current) => ({
+            ...current,
+            [name]: value
+        }));
+
+    };
+
+
+    const handleChangePassword = async (event) => {
+
+        event.preventDefault();
+
+        setPasswordSuccess("");
+        setPasswordError("");
+
+
+        if (
+            !passwordForm.currentPassword.trim() ||
+            !passwordForm.newPassword.trim() ||
+            !passwordForm.confirmPassword.trim()
+        ) {
+
+            setPasswordError(
+                "Please fill in all password fields."
+            );
+
+            return;
+        }
+
+
+        if (passwordForm.newPassword.length < 8) {
+
+            setPasswordError(
+                "New password must be at least 8 characters."
+            );
+
+            return;
+        }
+
+
+        if (
+            passwordForm.newPassword !==
+            passwordForm.confirmPassword
+        ) {
+
+            setPasswordError(
+                "New passwords do not match."
+            );
+
+            return;
+        }
+
+
+        try {
+
+            setPasswordLoading(true);
+
+
+            const response = await fetch(
+                "http://localhost:8080/api/auth/change-password",
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        currentPassword:
+                            passwordForm.currentPassword,
+                        newPassword:
+                            passwordForm.newPassword
+                    })
+                }
+            );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.message ||
+                    "Password could not be changed."
+                );
+
+            }
+
+
+            setPasswordSuccess(
+                "Password changed successfully!"
+            );
+
+
+            setPasswordForm({
+                currentPassword: "",
+                newPassword: "",
+                confirmPassword: ""
+            });
+
+
+            setTimeout(() => {
+
+                setPasswordSuccess("");
+
+            }, 4000);
+
+
+        } catch (error) {
+
+            console.error(
+                "Change password error:",
+                error
+            );
+
+            setPasswordError(
+                error.message ||
+                "Something went wrong."
+            );
+
+        } finally {
+
+            setPasswordLoading(false);
+
+        }
+
+    };
+
 
     if (loading) {
 
@@ -296,6 +451,7 @@ function Account() {
 
     }
 
+
     if (error) {
 
         return (
@@ -316,8 +472,10 @@ function Account() {
 
     }
 
+
     return (
         <>
+
             <Navbar />
 
             <main className="account-page">
@@ -343,6 +501,7 @@ function Account() {
 
                     </div>
 
+
                     <div className="account-grid">
 
                         <div className="account-card">
@@ -365,6 +524,7 @@ function Account() {
 
                         </div>
 
+
                         <div className="account-card">
 
                             <div className="account-card-icon">
@@ -385,6 +545,7 @@ function Account() {
 
                         </div>
 
+
                         <div className="account-card">
 
                             <div className="account-card-icon">
@@ -404,6 +565,7 @@ function Account() {
                             </div>
 
                         </div>
+
 
                         <div
                             className="account-card account-card-clickable"
@@ -432,6 +594,7 @@ function Account() {
 
                     </div>
 
+
                     <section className="account-orders-section">
 
                         <div className="account-orders-header">
@@ -454,6 +617,7 @@ function Account() {
 
                         </div>
 
+
                         {ordersLoading ? (
 
                             <div className="account-orders-empty">
@@ -471,7 +635,7 @@ function Account() {
                                 </h3>
 
                                 <p>
-                                    Your WhatsApp orders will appear here.
+                                    Your orders will appear here.
                                 </p>
 
                             </div>
@@ -513,6 +677,7 @@ function Account() {
 
                                         </div>
 
+
                                         <div
                                             className={`account-order-status ${
                                                 order.status
@@ -520,7 +685,9 @@ function Account() {
                                                     : ""
                                             }`}
                                         >
+
                                             {order.status}
+
                                         </div>
 
                                     </button>
@@ -533,6 +700,150 @@ function Account() {
 
                     </section>
 
+
+                    <section className="account-password-section">
+
+                        <div className="account-password-header">
+
+                            <div>
+
+                                <span>
+                                    ACCOUNT SECURITY
+                                </span>
+
+                                <h2>
+                                    CHANGE <strong>PASSWORD</strong>
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <form
+                            className="account-password-form"
+                            onSubmit={handleChangePassword}
+                        >
+
+                            <div className="account-password-field">
+
+                                <label>
+                                    Current Password
+                                </label>
+
+                                <div className="account-password-input">
+
+                                    <FiLock />
+
+                                    <input
+                                        type="password"
+                                        name="currentPassword"
+                                        placeholder="Enter your current password"
+                                        value={
+                                            passwordForm.currentPassword
+                                        }
+                                        onChange={
+                                            handlePasswordChange
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+
+                            <div className="account-password-field">
+
+                                <label>
+                                    New Password
+                                </label>
+
+                                <div className="account-password-input">
+
+                                    <FiLock />
+
+                                    <input
+                                        type="password"
+                                        name="newPassword"
+                                        placeholder="Enter your new password"
+                                        value={
+                                            passwordForm.newPassword
+                                        }
+                                        onChange={
+                                            handlePasswordChange
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+
+                            <div className="account-password-field">
+
+                                <label>
+                                    Confirm New Password
+                                </label>
+
+                                <div className="account-password-input">
+
+                                    <FiLock />
+
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirm your new password"
+                                        value={
+                                            passwordForm.confirmPassword
+                                        }
+                                        onChange={
+                                            handlePasswordChange
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+
+                            {passwordError && (
+
+                                <p className="account-password-error">
+                                    {passwordError}
+                                </p>
+
+                            )}
+
+
+                            {passwordSuccess && (
+
+                                <p className="account-password-success">
+                                    {passwordSuccess}
+                                </p>
+
+                            )}
+
+
+                            <button
+                                type="submit"
+                                className="account-password-button"
+                                disabled={passwordLoading}
+                            >
+
+                                <FiLock />
+
+                                {passwordLoading
+                                    ? "Changing..."
+                                    : "Change Password"
+                                }
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+
                     <div className="account-actions">
 
                         <button
@@ -540,8 +851,11 @@ function Account() {
                             className="account-logout"
                             onClick={handleLogout}
                         >
+
                             <FiLogOut />
+
                             LOG OUT
+
                         </button>
 
                     </div>
@@ -549,6 +863,7 @@ function Account() {
                 </div>
 
             </main>
+
 
             {selectedOrder && !orderLoading && (
 
@@ -573,6 +888,7 @@ function Account() {
                             <FiX />
                         </button>
 
+
                         <div className="order-modal-header">
 
                             <span>
@@ -590,16 +906,20 @@ function Account() {
                                         : ""
                                 }`}
                             >
+
                                 {selectedOrder.status}
+
                             </div>
 
                         </div>
+
 
                         <div className="order-modal-items">
 
                             <span className="order-modal-section-title">
                                 PRODUCTS
                             </span>
+
 
                             {selectedOrderItems.length === 0 ? (
 
@@ -643,6 +963,7 @@ function Account() {
 
                         </div>
 
+
                         <div className="order-modal-info">
 
                             <div>
@@ -658,6 +979,7 @@ function Account() {
 
                             </div>
 
+
                             <div>
 
                                 <span>
@@ -672,6 +994,7 @@ function Account() {
                             </div>
 
                         </div>
+
 
                         <div className="order-modal-total">
 
@@ -691,6 +1014,7 @@ function Account() {
 
             )}
 
+
             {orderLoading && (
 
                 <div className="order-modal-overlay">
@@ -702,6 +1026,7 @@ function Account() {
                 </div>
 
             )}
+
 
             {orderError && (
 
@@ -742,7 +1067,9 @@ function Account() {
 
             )}
 
+
             <Footer />
+
         </>
     );
 }

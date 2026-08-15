@@ -3,6 +3,24 @@ import "./SupportCTA.css";
 import { FiArrowRight } from "react-icons/fi";
 
 function SupportCTA() {
+
+    const handleContactSupport = () => {
+
+        const phone = "994707991070";
+
+        const message =
+            "Salam! FPVStore.az saytından sizə dəstək üçün yazıram. " +
+            "Məhsul, sifariş və ya texniki məsələ ilə bağlı köməyə ehtiyacım var.";
+
+        const whatsappUrl =
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(
+            whatsappUrl,
+            "_blank"
+        );
+    };
+
     return (
 
         <section className="support-cta">
@@ -25,7 +43,10 @@ function SupportCTA() {
                     we're only one message away.
                 </p>
 
-                <button>
+                <button
+                    type="button"
+                    onClick={handleContactSupport}
+                >
 
                     Contact Support
 

@@ -5,14 +5,14 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 
 function FAQ() {
 
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState(-1);
 
     const faq = [
 
         {
-            question: "How long does shipping take?",
+            question: "How can I receive my order?",
             answer:
-                "Orders are usually processed within 24 hours and delivered in 1–5 business days depending on your location."
+                "You can receive your order by in-person pickup or with Bolt Send for an additional delivery fee."
         },
 
         {
@@ -36,7 +36,7 @@ function FAQ() {
         {
             question: "Can I track my order?",
             answer:
-                "Yes. Once your order has been shipped, you'll receive tracking information via email."
+                "For Bolt Send deliveries, tracking information can be provided when available. For in-person pickup, you will receive the pickup details directly."
         }
 
     ];
@@ -47,7 +47,9 @@ function FAQ() {
 
             <div className="faq-title">
 
-                <span>FAQ</span>
+                <span>
+                    FAQ
+                </span>
 
                 <h2>
                     Frequently Asked Questions
@@ -60,10 +62,10 @@ function FAQ() {
 
             </div>
 
+
             <div className="faq-container">
 
                 {
-
                     faq.map((item, index) => (
 
                         <div
@@ -76,6 +78,7 @@ function FAQ() {
                         >
 
                             <button
+                                type="button"
                                 className="faq-question"
                                 onClick={() =>
                                     setActive(
@@ -91,14 +94,13 @@ function FAQ() {
                                 </span>
 
                                 {
-
                                     active === index
                                         ? <FiMinus />
                                         : <FiPlus />
-
                                 }
 
                             </button>
+
 
                             <div className="faq-answer">
 
@@ -111,7 +113,6 @@ function FAQ() {
                         </div>
 
                     ))
-
                 }
 
             </div>

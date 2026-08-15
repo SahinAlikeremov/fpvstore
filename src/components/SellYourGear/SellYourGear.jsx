@@ -3,6 +3,34 @@ import "./SellYourGear.css";
 import { FiArrowRight } from "react-icons/fi";
 
 function SellYourGear() {
+
+    const handlePostAd = () => {
+
+        const phone = "994707991070";
+
+        const message = `
+Salam! FPVStore.az üzərindən məhsulumu Used Market-də satmaq istəyirəm.
+
+Məhsulun adı:
+Marka:
+Vəziyyəti:
+Qiyməti:
+Açıqlama:
+
+Məhsulun fotolarını bu söhbətə göndərəcəyəm.
+
+Elan uğurla satıldıqdan sonra satış məbləğinin 10%-i FPVStore.az xidmət komissiyası olaraq ödənilir.
+        `;
+
+        const whatsappUrl =
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(
+            whatsappUrl,
+            "_blank"
+        );
+    };
+
     return (
 
         <section className="sell-your-gear">
@@ -24,7 +52,10 @@ function SellYourGear() {
                     across Azerbaijan.
                 </p>
 
-                <button>
+                <button
+                    type="button"
+                    onClick={handlePostAd}
+                >
 
                     Post Your Ad
 
@@ -35,7 +66,6 @@ function SellYourGear() {
             </div>
 
         </section>
-
     );
 }
 
