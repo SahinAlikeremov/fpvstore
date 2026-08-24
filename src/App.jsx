@@ -17,6 +17,8 @@ import About from "./pages/About/About";
 import Terms from "./pages/Terms/Terms";
 import Privacy from "./pages/Privacy/Privacy";
 import AdminOrders from "./pages/AdminOrders/AdminOrders";
+import AdminProducts from "./pages/AdminProducts/AdminProducts";
+import AdminAddProduct from "./pages/AdminAddProduct/AdminAddProduct";
 
 
 function App() {
@@ -106,6 +108,16 @@ function App() {
                 <Route
                     path="/admin/orders"
                     element={<AdminOrders />}
+                />
+
+                <Route
+                    path="/admin/products"
+                    element={<AdminProducts />}
+                />
+
+                <Route
+                    path="/admin/products/add"
+                    element={<AdminAddProduct />}
                 />
 
             </Routes>

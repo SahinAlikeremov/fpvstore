@@ -65,7 +65,7 @@ function Account() {
             try {
 
                 const userResponse = await fetch(
-                    "http://localhost:8080/api/auth/me",
+                    "/api/auth/me",
                     {
                         credentials: "include"
                     }
@@ -85,7 +85,7 @@ function Account() {
 
 
                 const ordersResponse = await fetch(
-                    "http://localhost:8080/api/orders",
+                    "/api/orders",
                     {
                         credentials: "include"
                     }
@@ -195,7 +195,7 @@ function Account() {
         try {
 
             await fetch(
-                "http://localhost:8080/api/auth/logout",
+                "/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"
@@ -223,7 +223,7 @@ function Account() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/orders/${orderId}`,
+                `/api/orders/${orderId}`,
                 {
                     method: "GET",
                     credentials: "include"
@@ -360,7 +360,7 @@ function Account() {
 
 
             const response = await fetch(
-                "http://localhost:8080/api/auth/change-password",
+                "/api/auth/change-password",
                 {
                     method: "POST",
                     credentials: "include",

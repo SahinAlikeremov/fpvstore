@@ -60,7 +60,7 @@ function Products() {
     useEffect(() => {
 
         fetch(
-            "http://localhost:8080/api/products"
+            "/api/products"
         )
             .then((response) => {
 

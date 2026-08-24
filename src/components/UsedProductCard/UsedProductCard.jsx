@@ -15,6 +15,8 @@ import ovonic1300 from "../../assets/images/ovonic1300.png";
 import ovonic1550 from "../../assets/images/ovonic1550.png";
 import ovonic13002 from "../../assets/images/ovonic13002.png";
 import ovonic1600 from "../../assets/images/ovonic1600.png";
+import boxer from "../../assets/images/boxer.png";
+
 import { useWishlist } from "../../contexts/WishlistContext";
 import { useCart } from "../../contexts/CartContext";
 
@@ -23,6 +25,7 @@ const productImages = {
     "ovonic1550.png": ovonic1550,
     "ovonic13002.png": ovonic13002,
     "ovonic1600.png": ovonic1600,
+    "boxer.png": boxer
 };
 
 function UsedProductCard({ product }) {

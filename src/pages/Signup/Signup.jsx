@@ -41,7 +41,7 @@ function Signup() {
         try {
 
             const response = await fetch(
-                "http://localhost:8080/api/auth/signup",
+                "/api/auth/signup",
                 {
                     method: "POST",
 

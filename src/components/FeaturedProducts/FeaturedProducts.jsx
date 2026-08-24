@@ -52,7 +52,7 @@ function FeaturedProducts() {
 
     useEffect(() => {
 
-        fetch("http://localhost:8080/api/products")
+        fetch("/api/products")
 
             .then((response) => {
 

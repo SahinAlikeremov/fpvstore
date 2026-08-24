@@ -17,7 +17,7 @@ function BrandGrid() {
             try {
 
                 const response = await fetch(
-                    "http://localhost:8080/api/products"
+                    "/api/products"
                 );
 
                 if (!response.ok) {

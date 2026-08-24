@@ -14,7 +14,7 @@ function UsedProductGrid({
 
     useEffect(() => {
 
-        fetch("http://localhost:8080/api/products/used")
+        fetch("/api/products/used")
 
             .then((response) => {
 

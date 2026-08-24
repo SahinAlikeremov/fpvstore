@@ -27,7 +27,7 @@ function MobileMenu({ isOpen, onClose }) {
             try {
 
                 const response = await fetch(
-                    "http://localhost:8080/api/auth/me",
+                    "/api/auth/me",
                     {
                         method: "GET",
                         credentials: "include"
@@ -71,7 +71,7 @@ function MobileMenu({ isOpen, onClose }) {
         try {
 
             await fetch(
-                "http://localhost:8080/api/auth/logout",
+                "/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"

@@ -50,7 +50,7 @@ function ProductDetail() {
         setLoading(true);
         setError("");
 
-        fetch(`http://localhost:8080/api/products/${id}`)
+        fetch(`/api/products/${id}`)
 
             .then((response) => {
 

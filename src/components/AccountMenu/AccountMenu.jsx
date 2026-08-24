@@ -20,7 +20,7 @@ function AccountMenu({ isOpen, onClose }) {
 
         if (!isOpen) return;
 
-        fetch("http://localhost:8080/api/auth/me", {
+        fetch("/api/auth/me", {
             credentials: "include"
         })
             .then(async (response) => {
@@ -45,7 +45,7 @@ function AccountMenu({ isOpen, onClose }) {
         try {
 
             await fetch(
-                "http://localhost:8080/api/auth/logout",
+                "/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"

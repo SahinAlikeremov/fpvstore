@@ -24,7 +24,7 @@ function CommunityStats() {
 
     useEffect(() => {
 
-        fetch("http://localhost:8080/api/community/stats")
+        fetch("/api/community/stats")
 
             .then((response) => {
 

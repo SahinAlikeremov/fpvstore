@@ -58,7 +58,7 @@ function Navbar() {
             try {
 
                 const response = await fetch(
-                    "http://localhost:8080/api/auth/me",
+                    "/api/auth/me",
                     {
                         method: "GET",
                         credentials: "include"

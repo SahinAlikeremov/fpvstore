@@ -17,7 +17,7 @@ function AdminOrders() {
             setError("");
 
             const response = await fetch(
-                "http://localhost:8080/api/orders/admin",
+                "/api/orders/admin",
                 {
                     credentials: "include"
                 }
@@ -83,7 +83,7 @@ function AdminOrders() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/orders/admin/${orderId}/status`,
+                `/api/orders/admin/${orderId}/status`,
                 {
                     method: "PUT",
 
