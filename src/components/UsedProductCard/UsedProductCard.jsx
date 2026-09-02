@@ -45,7 +45,11 @@ function UsedProductCard({ product }) {
         ? product.image.split("/").pop()
         : null;
 
-    const image = productImages[imageName];
+    const image =
+        productImages[imageName] ||
+        (imageName
+            ? `/assets/${imageName}`
+            : null);
 
     const displayProduct = {
         ...product,

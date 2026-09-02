@@ -31,7 +31,6 @@ function ProductCard({
     rating,
     reviews
 }) {
-
     const navigate = useNavigate();
 
     const {
@@ -53,7 +52,9 @@ function ProductCard({
 
     const imagePath = imageKey
         ? images[imageKey]
-        : "";
+        : imageName
+            ? `/assets/${imageName}`
+            : "";
 
     const product = {
         id,
@@ -76,7 +77,6 @@ function ProductCard({
 
     return (
         <div className="product-card">
-
             {badge && (
                 <div className="product-badge">
                     {badge}
@@ -101,16 +101,15 @@ function ProductCard({
                 onClick={openProduct}
                 style={{ cursor: "pointer" }}
             >
-
-                <img
-                    src={imagePath}
-                    alt={title}
-                />
-
+                {imagePath ? (
+                    <img
+                        src={imagePath}
+                        alt={title}
+                    />
+                ) : null}
             </div>
 
             <div className="product-content">
-
                 <span className="product-brand">
                     {brand}
                 </span>
@@ -123,21 +122,24 @@ function ProductCard({
                 </h3>
 
                 <div className="product-rating">
-
-                    <FiStar />
-                    <FiStar />
-                    <FiStar />
-                    <FiStar />
-                    <FiStar />
+                    {[...Array(5)].map((_, index) => (
+                        <FiStar
+                            key={index}
+                            className={
+                                index <
+                                Math.round(rating || 0)
+                                    ? "active"
+                                    : ""
+                            }
+                        />
+                    ))}
 
                     <span>
-                        ({reviews})
+                        ({reviews || 0})
                     </span>
-
                 </div>
 
                 <div className="product-price">
-
                     <h2>
                         ₼{price}
                     </h2>
@@ -147,7 +149,6 @@ function ProductCard({
                             ₼{oldPrice}
                         </span>
                     )}
-
                 </div>
 
                 <button
@@ -160,9 +161,7 @@ function ProductCard({
                     <FiShoppingCart />
                     Add To Cart
                 </button>
-
             </div>
-
         </div>
     );
 }

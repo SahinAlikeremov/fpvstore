@@ -149,7 +149,9 @@ function ProductDetail() {
 
     const imagePath = imageKey
         ? images[imageKey]
-        : "";
+        : imageName
+            ? `/assets/${imageName}`
+            : "";
 
 
     const liked = isInWishlist(product.id);

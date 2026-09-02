@@ -150,7 +150,7 @@ function AdminAddProduct() {
 
             const productResponse =
                 await fetch(
-                    "/api/admin/products",
+                    "/api/products",
                     {
                         method: "POST",
                         credentials: "include",
@@ -204,7 +204,7 @@ function AdminAddProduct() {
 
                 const imageResponse =
                     await fetch(
-                        `/api/admin/products/${productData.id}/image`,
+                        `/api/products/${productData.id}/image`,
                         {
                             method: "POST",
                             credentials: "include",

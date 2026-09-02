@@ -23,8 +23,6 @@ function Footer() {
             <div className="footer-container">
 
 
-                {/* BRAND */}
-
                 <div className="footer-column">
 
                     <h2 className="footer-logo">
@@ -80,8 +78,6 @@ function Footer() {
                 </div>
 
 
-                {/* QUICK LINKS */}
-
                 <div className="footer-column">
 
                     <h3>
@@ -114,9 +110,6 @@ function Footer() {
 
                 </div>
 
-
-                {/* INFORMATION */}
-
                 <div className="footer-column">
 
                     <h3>
@@ -140,9 +133,6 @@ function Footer() {
                     </Link>
 
                 </div>
-
-
-                {/* CATEGORIES */}
 
                 <div className="footer-column">
 
@@ -172,9 +162,6 @@ function Footer() {
 
                 </div>
 
-
-                {/* CONTACT */}
-
                 <div className="footer-column">
 
                     <h3>
@@ -190,15 +177,15 @@ function Footer() {
                     </a>
 
                     <a
-                        href="https://instagram.com/sahin_fpv"
+                        href="https://instagram.com/fpvstore.az"
                         target="_blank"
                         rel="noreferrer"
                     >
-                        📷 Instagram: @sahin_fpv
+                        📷 Instagram: @fpvstore.az
                     </a>
 
                     <p>
-                        ✈ Facebook: @sahin_fpv
+                        ✈ Facebook: @fpvstore.az
                     </p>
 
                     <p>

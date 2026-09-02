@@ -9,6 +9,9 @@ function AdminProducts() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+    const [authorized, setAuthorized] = useState(false);
+    const [checkingAuth, setCheckingAuth] = useState(true);
+
     const [search, setSearch] = useState("");
 
     const [editingProduct, setEditingProduct] = useState(null);
@@ -24,6 +27,7 @@ function AdminProducts() {
         condition: ""
     });
 
+
     const fetchProducts = async () => {
 
         try {
@@ -32,7 +36,7 @@ function AdminProducts() {
             setError("");
 
             const response = await fetch(
-                "/api/admin/products",
+                "/api/products",
                 {
                     credentials: "include"
                 }
@@ -47,6 +51,7 @@ function AdminProducts() {
                     data.message ||
                     "Products could not be loaded."
                 );
+
             }
 
             setProducts(
@@ -72,12 +77,72 @@ function AdminProducts() {
             setLoading(false);
 
         }
+
     };
 
 
     useEffect(() => {
 
-        fetchProducts();
+        const checkAdmin = async () => {
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/me",
+                    {
+                        method: "GET",
+                        credentials: "include"
+                    }
+                );
+
+                if (!response.ok) {
+
+                    window.location.replace(
+                        "/login"
+                    );
+
+                    return;
+
+                }
+
+                const user =
+                    await response.json();
+
+                if (
+                    !user ||
+                    !user.role ||
+                    user.role.toUpperCase() !==
+                        "ADMIN"
+                ) {
+
+                    window.location.replace("/");
+
+                    return;
+
+                }
+
+                setAuthorized(true);
+
+                fetchProducts();
+
+            } catch (error) {
+
+                console.error(
+                    "Admin authorization error:",
+                    error
+                );
+
+                window.location.replace("/");
+
+            } finally {
+
+                setCheckingAuth(false);
+
+            }
+
+        };
+
+        checkAdmin();
 
     }, []);
 
@@ -101,6 +166,7 @@ function AdminProducts() {
             top: 0,
             behavior: "smooth"
         });
+
     };
 
 
@@ -130,7 +196,7 @@ function AdminProducts() {
         try {
 
             const response = await fetch(
-                `/api/admin/products/${editingProduct.id}`,
+                `/api/products/${editingProduct.id}`,
                 {
                     method: "PUT",
 
@@ -151,7 +217,14 @@ function AdminProducts() {
                                 : Number(form.oldPrice),
                         stock: Number(form.stock),
                         badge: form.badge,
-                        condition: form.condition
+                        condition: form.condition,
+                        image: editingProduct.image,
+                        rating:
+                            editingProduct.rating ?? 0,
+                        reviews:
+                            editingProduct.reviews ?? 0,
+                        popularity:
+                            editingProduct.popularity ?? 0
                     })
                 }
             );
@@ -165,11 +238,13 @@ function AdminProducts() {
                     data.message ||
                     "Product could not be updated."
                 );
+
             }
 
             setProducts((current) =>
                 current.map((product) =>
-                    product.id === editingProduct.id
+                    product.id ===
+                    editingProduct.id
                         ? data
                         : product
                 )
@@ -201,6 +276,7 @@ function AdminProducts() {
             );
 
         }
+
     };
 
 
@@ -218,7 +294,7 @@ function AdminProducts() {
         try {
 
             const response = await fetch(
-                `/api/admin/products/${productId}`,
+                `/api/products/${productId}`,
                 {
                     method: "DELETE",
                     credentials: "include"
@@ -236,6 +312,7 @@ function AdminProducts() {
                     data?.message ||
                     "Product could not be deleted."
                 );
+
             }
 
             setProducts((current) =>
@@ -258,6 +335,7 @@ function AdminProducts() {
             );
 
         }
+
     };
 
 
@@ -306,6 +384,30 @@ function AdminProducts() {
             );
 
         });
+
+
+    if (checkingAuth) {
+
+        return (
+            <main className="admin-products-page">
+
+                <div className="admin-products-container">
+
+                    <p>
+                        Checking access...
+                    </p>
+
+                </div>
+
+            </main>
+        );
+
+    }
+
+
+    if (!authorized) {
+        return null;
+    }
 
 
     if (loading) {
