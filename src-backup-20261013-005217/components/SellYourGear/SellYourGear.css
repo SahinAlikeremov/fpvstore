@@ -1,0 +1,134 @@
+.sell-your-gear{
+
+    width:90%;
+    max-width:1450px;
+
+    margin:120px auto;
+
+    background:linear-gradient(135deg,#111,#181818);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    overflow:hidden;
+}
+
+.sell-container{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:90px 40px;
+
+    text-align:center;
+}
+
+.sell-container span{
+
+    display:inline-block;
+
+    color:#ff3131;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+}
+
+.sell-container h2{
+
+    color:#fff;
+
+    font-size:52px;
+
+    line-height:1.15;
+
+    margin-bottom:25px;
+}
+
+.sell-container p{
+
+    color:#bdbdbd;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    margin-bottom:45px;
+}
+
+.sell-container button{
+
+    width:240px;
+    height:60px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ff3131;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+
+    margin:auto;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.sell-container button:hover{
+
+    background:#ff5050;
+
+    transform:translateY(-4px);
+}
+
+@media(max-width:768px){
+
+    .sell-container{
+
+        padding:70px 25px;
+    }
+
+    .sell-container h2{
+
+        font-size:38px;
+    }
+
+    .sell-container p{
+
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .sell-container h2{
+
+        font-size:30px;
+    }
+
+    .sell-container button{
+
+        width:100%;
+    }
+
+}

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
     FiUser,
     FiMail,
+    FiPhone,
     FiLock,
     FiUserPlus
 } from "react-icons/fi";
@@ -19,6 +20,7 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [phone, setPhone] = useState("");
 
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState("");
@@ -41,7 +43,7 @@ function Signup() {
         try {
 
             const response = await fetch(
-                "/api/auth/signup",
+                "https://fpvstore.az/api/auth/signup",
                 {
                     method: "POST",
 
@@ -54,7 +56,8 @@ function Signup() {
                     body: JSON.stringify({
                         username,
                         email,
-                        password
+                        password,
+                        phone
                     })
                 }
             );
@@ -198,6 +201,30 @@ function Signup() {
                         </div>
 
                     </div>
+
+                    <div className="signup-field">
+
+                        <label>
+                            Phone
+                        </label>
+
+                 <div className="signup-input">
+
+                     <FiPhone />
+                 
+                     <input
+                         type="tel"
+                         placeholder="Enter your phone number"
+                         value={phone}
+                         onChange={(e) =>
+                             setPhone(e.target.value)
+                         }
+                         required
+                     />
+
+                     </div>
+
+                   </div>
 
                     <div className="signup-field">
 

@@ -1,0 +1,174 @@
+.used-hero{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:170px 0 90px;
+
+    background:#070707;
+}
+
+.used-hero-container{
+    width:90%;
+    max-width:1450px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:70px;
+}
+
+.used-left{
+    flex:1;
+    max-width:560px;
+}
+
+.used-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    padding:10px 18px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:40px;
+
+    background:#111;
+
+    color:#ff3131;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    margin-bottom:28px;
+}
+
+.used-tag::after{
+    content:"";
+
+    width:42px;
+    height:2px;
+
+    background:#ff3131;
+}
+
+.used-left h1{
+    color:#fff;
+
+    font-size:72px;
+    font-weight:900;
+
+    line-height:1;
+
+    margin-bottom:28px;
+}
+
+.used-left h1 span{
+    color:#ff3131;
+}
+
+.used-left p{
+    color:#bdbdbd;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    margin-bottom:45px;
+}
+
+.used-right{
+    flex:1.2;
+
+    display:flex;
+    justify-content:flex-end;
+}
+
+.used-right img{
+    width:100%;
+    max-width:820px;
+
+    user-select:none;
+    pointer-events:none;
+}
+
+@media(max-width:1200px){
+
+    .used-left h1{
+        font-size:58px;
+    }
+
+    .used-left p{
+        font-size:17px;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .used-hero{
+        padding:150px 0 70px;
+    }
+
+    .used-hero-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .used-left{
+        max-width:100%;
+    }
+
+    .used-tag{
+        margin:auto auto 25px;
+    }
+
+    .used-right{
+        justify-content:center;
+    }
+
+    .used-right img{
+        max-width:680px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .used-left h1{
+        font-size:48px;
+    }
+
+    .used-left p{
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .used-hero{
+        padding:130px 0 50px;
+    }
+
+    .used-left h1{
+        font-size:38px;
+    }
+
+    .used-left p{
+        font-size:15px;
+        line-height:1.8;
+    }
+
+    .used-tag{
+        font-size:12px;
+        padding:8px 15px;
+    }
+
+}

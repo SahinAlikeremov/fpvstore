@@ -119,20 +119,14 @@
 }
 
 .product-actions{
-    width:100%;
     display:flex;
-    justify-content:stretch;
-    align-items:stretch;
+    justify-content:space-between;
     gap:10px;
 }
 
 .product-actions button{
-    width:100%;
-    min-width:0;
-    flex:1 1 100%;
-    height:42px !important;
-    min-height:42px !important;
-    padding:0 14px !important;
+    flex:1;
+    height:42px;
     background:#161616;
     border:1px solid rgba(255,255,255,.08);
     border-radius:10px;
@@ -140,16 +134,6 @@
     cursor:pointer;
     transition:.3s;
     font-size:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-sizing:border-box;
-}
-
-.product-actions button svg{
-    width:18px;
-    height:18px;
-    flex-shrink:0;
 }
 
 .product-actions button:hover{
@@ -212,50 +196,19 @@
     }
 
     .product-card{
-        padding:16px;
-        min-height:500px;
+        padding:14px;
     }
 
     .product-card img{
-        height:190px;
+        height:140px;
     }
 
     .product-card h3{
-        font-size:18px;
-        line-height:1.25;
-        margin:16px 0 12px;
-        min-height:48px;
-    }
-
-    .battery-condition{
-        margin-bottom:20px;
-    }
-
-    .battery-condition small{
-        font-size:12px;
-        margin-bottom:9px;
-    }
-
-    .stars{
-        margin-bottom:8px;
-    }
-
-    .prices{
-        margin-bottom:20px;
+        font-size:16px;
     }
 
     .price{
-        font-size:23px;
-    }
-
-    .product-actions{
-        width:100%;
-    }
-
-    .product-actions button{
-        width:100%;
-        height:46px !important;
-        min-height:46px !important;
+        font-size:21px;
     }
 
 }
@@ -270,29 +223,12 @@
         grid-template-columns:1fr;
     }
 
-    .product-card{
-        padding:16px;
-        min-height:520px;
-    }
+}
 
-    .product-card img{
-        height:210px;
-    }
+.wishlist-btn.active {
+    color: #ff3131;
+}
 
-    .product-card h3{
-        font-size:18px;
-        line-height:1.25;
-        min-height:50px;
-    }
-
-    .product-actions{
-        width:100%;
-    }
-
-    .product-actions button{
-        width:100%;
-        height:46px !important;
-        min-height:46px !important;
-    }
-
+.wishlist-btn.active svg {
+    fill: #ff3131;
 }

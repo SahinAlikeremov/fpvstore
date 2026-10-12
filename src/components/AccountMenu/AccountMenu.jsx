@@ -20,7 +20,7 @@ function AccountMenu({ isOpen, onClose }) {
 
         if (!isOpen) return;
 
-        fetch("/api/auth/me", {
+        fetch("https://fpvstore.az/api/auth/me", {
             credentials: "include"
         })
             .then(async (response) => {
@@ -45,7 +45,7 @@ function AccountMenu({ isOpen, onClose }) {
         try {
 
             await fetch(
-                "/api/auth/logout",
+                "https://fpvstore.az/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"

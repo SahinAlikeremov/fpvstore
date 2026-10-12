@@ -1,0 +1,169 @@
+import "./ProductCard.css";
+
+import {
+    FiHeart,
+    FiShoppingCart,
+    FiStar
+} from "react-icons/fi";
+
+import { useNavigate } from "react-router-dom";
+
+import { useWishlist } from "../../contexts/WishlistContext";
+import { useCart } from "../../contexts/CartContext";
+
+const images = import.meta.glob(
+    "../../assets/images/*",
+    {
+        eager: true,
+        query: "?url",
+        import: "default"
+    }
+);
+
+function ProductCard({
+    id,
+    image,
+    badge,
+    brand,
+    title,
+    price,
+    oldPrice,
+    rating,
+    reviews
+}) {
+    const navigate = useNavigate();
+
+    const {
+        toggleWishlist,
+        isInWishlist
+    } = useWishlist();
+
+    const {
+        addToCart
+    } = useCart();
+
+    const imageName = image
+        ? image.split("/").pop()
+        : "";
+
+    const imageKey = Object.keys(images).find(
+        (key) => key.endsWith(`/${imageName}`)
+    );
+
+    const imagePath = imageKey
+        ? images[imageKey]
+        : imageName
+            ? `/assets/${imageName}`
+            : "";
+
+    const product = {
+        id,
+        image: imagePath,
+        badge,
+        brand,
+        name: title,
+        title,
+        price,
+        oldPrice,
+        rating,
+        reviews
+    };
+
+    const liked = isInWishlist(id);
+
+    const openProduct = () => {
+        navigate(`/products/${id}`);
+    };
+
+    return (
+        <div className="product-card">
+            {badge && (
+                <div className="product-badge">
+                    {badge}
+                </div>
+            )}
+
+            <button
+                className={`wishlist-btn ${
+                    liked ? "active" : ""
+                }`}
+                type="button"
+                onClick={() =>
+                    toggleWishlist(product)
+                }
+                aria-label="Wishlist"
+            >
+                <FiHeart />
+            </button>
+
+            <div
+                className="product-image"
+                onClick={openProduct}
+                style={{ cursor: "pointer" }}
+            >
+                {imagePath ? (
+                    <img
+                        src={imagePath}
+                        alt={title}
+                    />
+                ) : null}
+            </div>
+
+            <div className="product-content">
+                <span className="product-brand">
+                    {brand}
+                </span>
+
+                <h3
+                    onClick={openProduct}
+                    style={{ cursor: "pointer" }}
+                >
+                    {title}
+                </h3>
+
+                <div className="product-rating">
+                    {[...Array(5)].map((_, index) => (
+                        <FiStar
+                            key={index}
+                            className={
+                                index <
+                                Math.round(rating || 0)
+                                    ? "active"
+                                    : ""
+                            }
+                        />
+                    ))}
+
+                    <span>
+                        ({reviews || 0})
+                    </span>
+                </div>
+
+                <div className="product-price">
+                    <h2>
+                        ₼{price}
+                    </h2>
+
+                    {oldPrice && (
+                        <span>
+                            ₼{oldPrice}
+                        </span>
+                    )}
+                </div>
+
+                <button
+                    className="cart-btn"
+                    type="button"
+                    onClick={() =>
+                        addToCart(product)
+                    }
+                >
+                    <FiShoppingCart />
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    );
+}
+
+export default ProductCard;

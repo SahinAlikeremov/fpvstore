@@ -27,7 +27,7 @@ function MobileMenu({ isOpen, onClose }) {
             try {
 
                 const response = await fetch(
-                    "/api/auth/me",
+                    "https://fpvstore.az/api/auth/me",
                     {
                         method: "GET",
                         credentials: "include"
@@ -71,7 +71,7 @@ function MobileMenu({ isOpen, onClose }) {
         try {
 
             await fetch(
-                "/api/auth/logout",
+                "https://fpvstore.az/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"

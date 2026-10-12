@@ -1,0 +1,404 @@
+.product-detail-page {
+    min-height: 100vh;
+    background: #050505;
+    padding: 130px 40px 80px;
+}
+
+.product-detail-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+
+    background: transparent;
+    border: none;
+
+    color: #aaa;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.back-button:hover {
+    color: #ff3131;
+}
+
+.product-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+
+    background: #0d0d0d;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+
+    padding: 35px;
+}
+
+.product-detail-image-section {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 550px;
+
+    background: #101010;
+
+    border-radius: 18px;
+}
+
+.detail-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    background: #ff3131;
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.detail-wishlist {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+
+    background: #161616;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.detail-wishlist:hover,
+.detail-wishlist.active {
+    color: #ff3131;
+}
+
+.detail-wishlist.active svg {
+    fill: #ff3131;
+}
+
+.product-detail-image {
+    width: 82%;
+    height: 82%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-image img {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+}
+
+.product-detail-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-brand {
+    color: #ff3131;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 12px;
+}
+
+.product-detail-content h1 {
+    margin: 0 0 18px;
+
+    color: white;
+
+    font-size: 38px;
+    line-height: 1.1;
+}
+
+.detail-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #888;
+
+    margin-bottom: 22px;
+}
+
+.detail-stars {
+    display: flex;
+    gap: 3px;
+}
+
+.detail-stars svg {
+    color: #444;
+}
+
+.detail-stars svg.active {
+    color: #ff3131;
+    fill: #ff3131;
+}
+
+.detail-price {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.detail-price strong {
+    color: white;
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.detail-price span {
+    color: #666;
+    text-decoration: line-through;
+    font-size: 17px;
+}
+
+.detail-stock {
+    margin-bottom: 30px;
+}
+
+.in-stock {
+    color: #6fd36f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.out-stock {
+    color: #ff3131;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.detail-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.detail-info-grid > div {
+    padding: 15px;
+
+    background: #111;
+
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 12px;
+}
+
+.detail-info-grid span {
+    display: block;
+
+    color: #666;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.detail-info-grid strong {
+    color: white;
+
+    font-size: 13px;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+
+    height: 52px;
+
+    background: #161616;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 11px;
+}
+
+.quantity-control button {
+    width: 46px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+}
+
+.quantity-control button:hover {
+    color: #ff3131;
+}
+
+.quantity-control button:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+.quantity-control span {
+    width: 38px;
+
+    text-align: center;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+.detail-cart-button {
+    flex: 1;
+
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: #ff3131;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.detail-cart-button:hover {
+    background: #e32626;
+}
+
+.detail-cart-button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.product-detail-loading,
+.product-detail-error {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #aaa;
+}
+
+@media (max-width: 900px) {
+
+    .product-detail-page {
+        padding: 110px 20px 60px;
+    }
+
+    .product-detail-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .product-detail-image-section {
+        min-height: 400px;
+    }
+
+    .product-detail-content h1 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .product-detail-page {
+        padding-top: 155px !important;
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-bottom: 45px;
+    }
+
+    .product-detail-container {
+        width: 100%;
+    }
+
+    .product-detail-card {
+        padding: 16px !important;
+        margin-top: 0;
+    }
+
+    .detail-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .quantity-control {
+        width: 100% !important;
+        height: 46px;
+    }
+
+    .detail-cart-button {
+        width: 100% !important;
+        height: 48px;
+        min-height: 48px;
+    }
+
+}

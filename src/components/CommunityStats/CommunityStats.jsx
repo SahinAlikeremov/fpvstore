@@ -24,7 +24,7 @@ function CommunityStats() {
 
     useEffect(() => {
 
-        fetch("/api/community/stats")
+        fetch("https://fpvstore.az/api/community/stats")
 
             .then((response) => {
 

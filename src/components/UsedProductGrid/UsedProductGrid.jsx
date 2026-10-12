@@ -14,7 +14,7 @@ function UsedProductGrid({
 
     useEffect(() => {
 
-        fetch("/api/products/used")
+        fetch("https://fpvstore.az/api/products/used")
 
             .then((response) => {
 

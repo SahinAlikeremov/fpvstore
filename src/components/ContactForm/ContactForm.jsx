@@ -56,7 +56,7 @@ function ContactForm() {
 
 
             const response = await fetch(
-                "/api/contact",
+                "https://fpvstore.az/api/contact",
                 {
                     method: "POST",
 

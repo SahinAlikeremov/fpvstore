@@ -20,7 +20,6 @@ import AdminOrders from "./pages/AdminOrders/AdminOrders";
 import AdminProducts from "./pages/AdminProducts/AdminProducts";
 import AdminAddProduct from "./pages/AdminAddProduct/AdminAddProduct";
 
-
 function App() {
 
     return (
@@ -106,11 +105,6 @@ function App() {
                 />
 
                 <Route
-                    path="/admin/orders"
-                    element={<AdminOrders />}
-                />
-
-                <Route
                     path="/admin/products"
                     element={<AdminProducts />}
                 />
@@ -118,6 +112,11 @@ function App() {
                 <Route
                     path="/admin/products/add"
                     element={<AdminAddProduct />}
+                />
+
+                <Route
+                    path="/admin/orders"
+                    element={<AdminOrders />}
                 />
 
             </Routes>

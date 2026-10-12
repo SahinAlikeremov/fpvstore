@@ -65,7 +65,7 @@ function Account() {
             try {
 
                 const userResponse = await fetch(
-                    "/api/auth/me",
+                    "https://fpvstore.az/api/auth/me",
                     {
                         credentials: "include"
                     }
@@ -85,7 +85,7 @@ function Account() {
 
 
                 const ordersResponse = await fetch(
-                    "/api/orders",
+                    "https://fpvstore.az/api/orders",
                     {
                         credentials: "include"
                     }
@@ -195,7 +195,7 @@ function Account() {
         try {
 
             await fetch(
-                "/api/auth/logout",
+                "https://fpvstore.az/api/auth/logout",
                 {
                     method: "POST",
                     credentials: "include"
@@ -223,7 +223,7 @@ function Account() {
         try {
 
             const response = await fetch(
-                `/api/orders/${orderId}`,
+                `https://fpvstore.az/api/orders/${orderId}`,
                 {
                     method: "GET",
                     credentials: "include"
@@ -360,7 +360,7 @@ function Account() {
 
 
             const response = await fetch(
-                "/api/auth/change-password",
+                "https://fpvstore.az/api/auth/change-password",
                 {
                     method: "POST",
                     credentials: "include",

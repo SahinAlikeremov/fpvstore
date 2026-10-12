@@ -1,4 +1,4 @@
-const API_URL = "/api/products";
+const API_URL = "https://fpvstore.az/api/products";
 
 export async function getProducts() {
     const response = await fetch(API_URL);

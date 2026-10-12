@@ -50,7 +50,7 @@ function ProductDetail() {
         setLoading(true);
         setError("");
 
-        fetch(`/api/products/${id}`)
+        fetch(`https://fpvstore.az/api/products/${id}`)
 
             .then((response) => {
 
@@ -147,12 +147,11 @@ function ProductDetail() {
         (key) => key.endsWith(`/${imageName}`)
     );
 
-    const imagePath = imageKey
-        ? images[imageKey]
-        : imageName
-            ? `/assets/${imageName}`
-            : "";
-
+const imagePath = imageKey
+    ? images[imageKey]
+    : imageName
+        ? `/assets/${imageName}`
+        : "";
 
     const liked = isInWishlist(product.id);
 

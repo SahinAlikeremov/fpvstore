@@ -38,7 +38,7 @@ function CartSummary() {
         try {
 
             const response = await fetch(
-                "/api/orders",
+                "https://fpvstore.az/api/orders",
                 {
                     method: "POST",
 

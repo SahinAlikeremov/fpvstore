@@ -17,7 +17,7 @@ function BrandGrid() {
             try {
 
                 const response = await fetch(
-                    "/api/products"
+                    "https://fpvstore.az/api/products"
                 );
 
                 if (!response.ok) {

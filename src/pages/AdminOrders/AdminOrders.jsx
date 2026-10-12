@@ -17,7 +17,7 @@ function AdminOrders() {
             setError("");
 
             const response = await fetch(
-                "/api/orders/admin",
+                "https://fpvstore.az/api/orders/admin",
                 {
                     credentials: "include"
                 }
@@ -83,7 +83,7 @@ function AdminOrders() {
         try {
 
             const response = await fetch(
-                `/api/orders/admin/${orderId}/status`,
+                `https://fpvstore.az/api/orders/admin/${orderId}/status`,
                 {
                     method: "PUT",
 

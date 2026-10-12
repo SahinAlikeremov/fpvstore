@@ -60,7 +60,7 @@ function Products() {
     useEffect(() => {
 
         fetch(
-            "/api/products"
+            "https://fpvstore.az/api/products"
         )
             .then((response) => {
 

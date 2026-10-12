@@ -58,7 +58,7 @@ function Navbar() {
             try {
 
                 const response = await fetch(
-                    "/api/auth/me",
+                    "https://fpvstore.az/api/auth/me",
                     {
                         method: "GET",
                         credentials: "include"

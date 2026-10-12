@@ -16,6 +16,15 @@ import ovonic1480 from "../../assets/images/ovonic1480.png";
 import ovonic13002 from "../../assets/images/ovonic13002.png";  
 
 
+const images = import.meta.glob(
+    "../../assets/images/*",
+    {
+        eager: true,
+        query: "?url",
+        import: "default"
+    }
+);
+
 const productImages = {
 
     "ovonic1300.png": ovonic1300,
@@ -52,7 +61,7 @@ function FeaturedProducts() {
 
     useEffect(() => {
 
-        fetch("/api/products")
+        fetch("https://fpvstore.az/api/products")
 
             .then((response) => {
 
@@ -69,32 +78,19 @@ function FeaturedProducts() {
             })
 
             .then((data) => {
-
-                console.log("ALL PRODUCTS:", data);
-
-
-                const ovonicProducts = data
-
-                    .filter((product) =>
-
-                        product.brand &&
-
-                        product.brand
-                            .toLowerCase()
-                            .trim() === "ovonic"
-
-                    )
-
-                    .slice(0, 8);
-
-
-                console.log(
-                    "OVONIC PRODUCTS:",
-                    ovonicProducts
-                );
-
-
-                setProducts(ovonicProducts);
+const ovonicProducts = data
+    .filter((product) =>
+        product.brand &&
+        product.brand.toLowerCase().trim() === "ovonic" &&
+        product.id !== 3
+    )
+    .sort((a, b) => {
+        if (a.id === 19) return -1;
+        if (b.id === 19) return 1;
+        return 0;
+    })
+    .slice(0, 8);
+setProducts(ovonicProducts);
 
                 setLoading(false);
 
@@ -173,8 +169,14 @@ function FeaturedProducts() {
                             : null;
 
 
+                    const imageKey =
+                        Object.keys(images).find(
+                            (key) => key.endsWith(`/${imageName}`)
+                        );
+
                     const image =
-                        productImages[imageName];
+                        productImages[imageName] ||
+                        (imageKey ? images[imageKey] : `/assets/${imageName}`);
 
 
                     const wishlistProduct = {

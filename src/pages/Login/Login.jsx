@@ -31,7 +31,7 @@ function Login() {
         try {
 
             const response = await fetch(
-                "/api/auth/login",
+                "https://fpvstore.az/api/auth/login",
                 {
                     method: "POST",
 

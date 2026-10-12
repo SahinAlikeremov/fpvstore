@@ -61,9 +61,9 @@ function BrandCard({
         ? images[logoKey]
         : null;
 
-        console.log("BRAND:", brand);
-console.log("LOGO KEY:", logoKey);
-console.log("LOGO:", logo);
+        
+
+
 
     const handleViewProducts = () => {
 

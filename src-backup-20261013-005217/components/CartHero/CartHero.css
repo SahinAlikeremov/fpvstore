@@ -1,0 +1,171 @@
+.cart-hero {
+    width: 100%;
+
+    min-height: 420px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 0 80px;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(255, 49, 49, 0.12),
+            transparent 35%
+        ),
+        #070707;
+}
+
+.cart-hero-container {
+    width: 90%;
+    max-width: 1450px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+.cart-hero-content {
+    max-width: 700px;
+}
+
+.cart-tag {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 40px;
+
+    background: #111;
+
+    color: #ff3131;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 28px;
+}
+
+.cart-tag::after {
+    content: "";
+
+    width: 42px;
+    height: 2px;
+
+    background: #ff3131;
+}
+
+.cart-hero-content h1 {
+    color: #fff;
+
+    font-size: 72px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin: 0 0 28px;
+}
+
+.cart-hero-content h1 span {
+    color: #ff3131;
+}
+
+.cart-hero-content p {
+    max-width: 600px;
+
+    color: #bdbdbd;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin: 0;
+}
+
+.cart-hero-icon {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    border: 1px solid rgba(255, 49, 49, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ff3131;
+
+    font-size: 100px;
+
+    box-shadow:
+        0 0 80px rgba(255, 49, 49, 0.12);
+
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+
+    .cart-hero {
+        padding: 140px 0 70px;
+    }
+
+    .cart-hero-container {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .cart-tag {
+        margin: 0 auto 25px;
+    }
+
+    .cart-hero-content h1 {
+        font-size: 58px;
+    }
+
+    .cart-hero-icon {
+        width: 180px;
+        height: 180px;
+
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .cart-hero {
+        padding: 125px 0 60px;
+    }
+
+    .cart-hero-content h1 {
+        font-size: 45px;
+    }
+
+    .cart-hero-content p {
+        font-size: 16px;
+    }
+
+    .cart-hero-icon {
+        width: 140px;
+        height: 140px;
+
+        font-size: 60px;
+    }
+}
